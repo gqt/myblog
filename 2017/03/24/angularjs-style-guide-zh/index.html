@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="qingTeng" />
+
+
+
+<meta name="description" content="简介本风格指南的目的是展示AngularJS应用的最佳实践和风格指南。这些最佳实践来自于：
+
+AngularJS项目源码
+本人阅读过的源码和文章
+本人的实践经历">
+<meta property="og:type" content="article">
+<meta property="og:title" content="angularjs-style-guide-zh">
+<meta property="og:url" content="https://xf27.github.io/qingTeng/2017/03/24/angularjs-style-guide-zh/index.html">
+<meta property="og:site_name" content="qingTeng's Blog">
+<meta property="og:description" content="简介本风格指南的目的是展示AngularJS应用的最佳实践和风格指南。这些最佳实践来自于：
+
+AngularJS项目源码
+本人阅读过的源码和文章
+本人的实践经历">
+<meta property="og:updated_time" content="2017-03-24T14:48:07.351Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="angularjs-style-guide-zh">
+<meta name="twitter:description" content="简介本风格指南的目的是展示AngularJS应用的最佳实践和风格指南。这些最佳实践来自于：
+
+AngularJS项目源码
+本人阅读过的源码和文章
+本人的实践经历">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="qingTeng&#39;s Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>angularjs-style-guide-zh | qingTeng&#39;s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">qingTeng</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">前端开发中的一枚妹子！</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/随笔">随笔</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/qingTenglove95@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/xf27/" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/A2/">A2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJs/">AngularJs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Front-end-Interview-questions/">Front-end-Interview-questions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dev/">dev</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/env/">env</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plan/">plan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/产品设计/">产品设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写作/">写作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原创/">原创</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快捷键/">快捷键</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推荐/">推荐</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/知识储备/">知识储备</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">qingTeng</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">qingTeng</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">前端开发中的一枚妹子！</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/随笔">随笔</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/qingTenglove95@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/xf27/" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-angularjs-style-guide-zh" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/24/angularjs-style-guide-zh/" class="article-date">
+      <time datetime="2017-03-24T14:23:15.000Z" itemprop="datePublished">2017-03-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      angularjs-style-guide-zh
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/AngularJs/">AngularJs</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJs/">AngularJs</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本风格指南的目的是展示AngularJS应用的最佳实践和风格指南。<br>这些最佳实践来自于：</p>
+<ol>
+<li>AngularJS项目源码</li>
+<li>本人阅读过的源码和文章</li>
+<li>本人的实践经历</li>
+</ol>
+<a id="more"></a>
+<p><strong>说明1</strong>: 这只是风格指南的草案，主要目的是通过交流以消除分歧，进而被社区广泛采纳。<br><strong>说明2</strong>: 本版本是翻译自英文原版，在遵循下面的指南之前请确认你看到的是比较新的版本。</p>
+<p>在本指南中不会包含基本的JavaScript开发指南。这些基本的指南可以在下面的列表中找到：</p>
+<ol>
+<li><a href="https://google.github.io/styleguide/javascriptguide.xml" target="_blank" rel="external">Google’s JavaScript style guide</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Developer_Guide/Coding_Style" target="_blank" rel="external">Mozilla’s JavaScript style guide</a></li>
+<li><a href="http://javascript.crockford.com/code.html" target="_blank" rel="external">Douglas Crockford’s JavaScript style guide</a></li>
+<li><a href="https://github.com/airbnb/javascript" target="_blank" rel="external">Airbnb JavaScript style guide</a></li>
+</ol>
+<p>对于AngularJS开发，推荐 <a href="https://google.github.io/styleguide/javascriptguide.xml" target="_blank" rel="external">Google’s JavaScript style guide</a>.</p>
+<p>在AngularJS的Github wiki中有一个相似的章节 <a href="https://github.com/ProLoser" target="_blank" rel="external">ProLoser</a>, 你可以点击<a href="https://github.com/angular/angular.js/wiki" target="_blank" rel="external">这里</a>查看。</p>
+<h1 id="其它翻译版本"><a href="#其它翻译版本" class="headerlink" title="其它翻译版本"></a>其它翻译版本</h1><ul>
+<li><a href="https://github.com/mgechev/angularjs-style-guide/blob/master/README.md" target="_blank" rel="external">英语</a></li>
+<li><a href="https://github.com/mgechev/angularjs-style-guide/blob/master/README-de-de.md" target="_blank" rel="external">德语</a></li>
+<li><a href="https://github.com/mgechev/angularjs-style-guide/blob/master/README-es-es.md" target="_blank" rel="external">西班牙语</a></li>
+<li><a href="https://github.com/mgechev/angularjs-style-guide/blob/master/README-fr-fr.md" target="_blank" rel="external">法语</a></li>
+<li><a href="https://github.com/mgechev/angularjs-style-guide/blob/master/README-id-id.md" target="_blank" rel="external">印度尼西亚语</a></li>
+<li><a href="https://github.com/mgechev/angularjs-style-guide/blob/master/README-it-it.md" target="_blank" rel="external">意大利语</a></li>
+<li><a href="https://github.com/mgechev/angularjs-style-guide/blob/master/README-ja-jp.md" target="_blank" rel="external">日语</a></li>
+<li><a href="https://github.com/mgechev/angularjs-style-guide/blob/master/README-ko-kr.md" target="_blank" rel="external">韩语</a></li>
+<li><a href="https://github.com/mgechev/angularjs-style-guide/blob/master/README-pl-pl.md" target="_blank" rel="external">波兰语</a></li>
+<li><a href="https://github.com/mgechev/angularjs-style-guide/blob/master/README-pt-br.md" target="_blank" rel="external">葡萄牙语</a></li>
+<li><a href="https://github.com/mgechev/angularjs-style-guide/blob/master/README-ru-ru.md" target="_blank" rel="external">俄语</a></li>
+<li><a href="https://github.com/mgechev/angularjs-style-guide/blob/master/README-sr.md" target="_blank" rel="external">塞尔维亚语</a></li>
+<li><a href="https://github.com/mgechev/angularjs-style-guide/blob/master/README-sr-lat.md" target="_blank" rel="external">塞尔维亚拉丁语</a></li>
+<li><a href="https://github.com/mgechev/angularjs-style-guide/blob/master/README-tr-tr.md" target="_blank" rel="external">土耳其语</a></li>
+</ul>
+<h1 id="内容目录"><a href="#内容目录" class="headerlink" title="内容目录"></a>内容目录</h1><ul>
+<li><a href="#概览">概览</a><ul>
+<li><a href="#目录结构">目录结构</a></li>
+<li><a href="#标记">标记</a></li>
+<li><a href="#命名约定">命名约定</a></li>
+<li><a href="#其他">其他</a></li>
+</ul>
+</li>
+<li><a href="#模块">模块</a></li>
+<li><a href="#控制器">控制器</a></li>
+<li><a href="#指令">指令</a></li>
+<li><a href="#过滤器">过滤器</a></li>
+<li><a href="#服务">服务</a></li>
+<li><a href="#模板">模板</a></li>
+<li><a href="#路由">路由</a></li>
+<li><a href="#国际化">国际化</a></li>
+<li><a href="#性能">性能</a></li>
+<li><a href="#加入我们">加入我们</a></li>
+<li><a href="#贡献者">贡献者</a></li>
+</ul>
+<h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p>由于一个大型的AngularJS应用有较多组成部分，所以最好通过分层的目录结构来组织。<br>有两个主流的组织方式：</p>
+<ul>
+<li>按照类型优先，业务功能其次的组织方式</li>
+</ul>
+<p>这种方式的目录结构看起来如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── app</div><div class="line">│   ├── app.js</div><div class="line">│   ├── controllers</div><div class="line">│   │   ├── home</div><div class="line">│   │   │   ├── FirstCtrl.js</div><div class="line">│   │   │   └── SecondCtrl.js</div><div class="line">│   │   └── about</div><div class="line">│   │       └── ThirdCtrl.js</div><div class="line">│   ├── directives</div><div class="line">│   │   ├── home</div><div class="line">│   │   │   └── directive1.js</div><div class="line">│   │   └── about</div><div class="line">│   │       ├── directive2.js</div><div class="line">│   │       └── directive3.js</div><div class="line">│   ├── filters</div><div class="line">│   │   ├── home</div><div class="line">│   │   └── about</div><div class="line">│   └── services</div><div class="line">│       ├── CommonService.js</div><div class="line">│       ├── cache</div><div class="line">│       │   ├── Cache1.js</div><div class="line">│       │   └── Cache2.js</div><div class="line">│       └── models</div><div class="line">│           ├── Model1.js</div><div class="line">│           └── Model2.js</div><div class="line">├── partials</div><div class="line">├── lib</div><div class="line">└── test</div></pre></td></tr></table></figure>
+<ul>
+<li>按照业务功能优先，类型其次的组织方式</li>
+</ul>
+<p>如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── app</div><div class="line">│   ├── app.js</div><div class="line">│   ├── common</div><div class="line">│   │   ├── controllers</div><div class="line">│   │   ├── directives</div><div class="line">│   │   ├── filters</div><div class="line">│   │   └── services</div><div class="line">│   ├── home</div><div class="line">│   │   ├── controllers</div><div class="line">│   │   │   ├── FirstCtrl.js</div><div class="line">│   │   │   └── SecondCtrl.js</div><div class="line">│   │   ├── directives</div><div class="line">│   │   │   └── directive1.js</div><div class="line">│   │   ├── filters</div><div class="line">│   │   │   ├── filter1.js</div><div class="line">│   │   │   └── filter2.js</div><div class="line">│   │   └── services</div><div class="line">│   │       ├── service1.js</div><div class="line">│   │       └── service2.js</div><div class="line">│   └── about</div><div class="line">│       ├── controllers</div><div class="line">│       │   └── ThirdCtrl.js</div><div class="line">│       ├── directives</div><div class="line">│       │   ├── directive2.js</div><div class="line">│       │   └── directive3.js</div><div class="line">│       ├── filters</div><div class="line">│       │   └── filter3.js</div><div class="line">│       └── services</div><div class="line">│           └── service3.js</div><div class="line">├── partials</div><div class="line">├── lib</div><div class="line">└── test</div></pre></td></tr></table></figure>
+<ul>
+<li>当目录里有多个单词时, 使用 lisp-case 语法:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">app</div><div class="line"> ├── app.js</div><div class="line"> └── my-complex-module</div><div class="line">     ├── controllers</div><div class="line">     ├── directives</div><div class="line">     ├── filters</div><div class="line">     └── services</div></pre></td></tr></table></figure>
+<ul>
+<li>在创建指令时，合适的做法是将相关的文件放到同一目录下 (如：模板文件, CSS/SASS 文件, JavaScript文件)。如果你在整个项目周期都选择这种组织方式，</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">app</div><div class="line">└── directives</div><div class="line">    ├── directive1</div><div class="line">    │   ├── directive1.html</div><div class="line">    │   ├── directive1.js</div><div class="line">    │   └── directive1.sass</div><div class="line">    └── directive2</div><div class="line">        ├── directive2.html</div><div class="line">        ├── directive2.js</div><div class="line">        └── directive2.sass</div></pre></td></tr></table></figure>
+<p>那么，上述的两种目录结构均能适用。</p>
+<ul>
+<li>组件的单元测试应与组件放置在同一目录下下。在这种方式下，当改变组件时，更加容易找到对应的测试。同时，单元测试也充当了文档和示例。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">services</div><div class="line">├── cache</div><div class="line">│   ├── cache1.js</div><div class="line">│   └── cache1.spec.js</div><div class="line">└── models</div><div class="line">    ├── model1.js</div><div class="line">    └── model1.spec.js</div></pre></td></tr></table></figure>
+<ul>
+<li><code>app.js</code>文件包含路由定义、配置和启动说明(如果需要的话)。</li>
+<li>每一个 JavaScript 文件应该仅包含 <strong>一个组件</strong> 。文件名应该以组件名命名。</li>
+<li>使用 Angular 项目模板，如 <a href="http://yeoman.io" target="_blank" rel="external">Yeoman</a>, <a href="http://joshdmiller.github.io/ng-boilerplate/#/home" target="_blank" rel="external">ng-boilerplate</a>.</li>
+</ul>
+<p>组件命名的约定可以在每个组件中看到。</p>
+<h2 id="标记"><a href="#标记" class="headerlink" title="标记"></a>标记</h2><p><a href="http://developer.yahoo.com/blogs/ydn/high-performance-sites-rule-6-move-scripts-bottom-7200.html" target="_blank" rel="external">太长慎读</a> 把script标签放在文档底部。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>MyApp<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-app</span>=<span class="string">"myApp"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-view</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"angular.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"app.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>保持标签的简洁并把AngularJS的标签放在标准HTML属性后面。这样提高了代码可读性。标准HTML属性和AngularJS的属性没有混到一起，提高了代码的可维护性。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"frm"</span> <span class="attr">ng-submit</span>=<span class="string">"login.authenticate()"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"ipt"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"name"</span> <span class="attr">require</span> <span class="attr">ng-model</span>=<span class="string">"user.name"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>其它的HTML标签应该遵循下面的指南的 <a href="http://mdo.github.io/code-guide/#html-attribute-order" target="_blank" rel="external">建议</a></p>
+<h2 id="命名约定"><a href="#命名约定" class="headerlink" title="命名约定"></a>命名约定</h2><p>下表展示了各个Angular元素的命名约定</p>
+<table>
+<thead>
+<tr>
+<th>元素</th>
+<th>命名风格</th>
+<th>实例</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modules</td>
+<td>lowerCamelCase</td>
+<td>angularApp</td>
+<td></td>
+</tr>
+<tr>
+<td>Controllers</td>
+<td>Functionality + ‘Ctrl’</td>
+<td>AdminCtrl</td>
+<td></td>
+</tr>
+<tr>
+<td>Directives</td>
+<td>lowerCamelCase</td>
+<td>userInfo</td>
+<td></td>
+</tr>
+<tr>
+<td>Filters</td>
+<td>lowerCamelCase</td>
+<td>userFilter</td>
+<td></td>
+</tr>
+<tr>
+<td>Services</td>
+<td>UpperCamelCase</td>
+<td>User</td>
+<td>constructor</td>
+</tr>
+<tr>
+<td>Services</td>
+<td>lowerCamelCase</td>
+<td>dataFactory</td>
+<td>others</td>
+</tr>
+</tbody>
+</table>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li>使用：<ul>
+<li><code>$timeout</code>  替代 <code>setTimeout</code></li>
+<li><code>$interval</code> instead of <code>setInterval</code></li>
+<li><code>$window</code>   替代 <code>window</code></li>
+<li><code>$document</code> 替代 <code>document</code></li>
+<li><code>$http</code>     替代 <code>$.ajax</code></li>
+</ul>
+</li>
+</ul>
+<p>这将使你更易于在测试时处理代码异常 (例如：你在 <code>setTimeout</code> 中忘记 <code>$scope.$apply</code>)</p>
+<p>使用如下工具自动化你的工作流</p>
+<pre><code>* [Yeoman](http://yeoman.io)
+* [Gulp](http://gulpjs.com)
+* [Grunt](http://gruntjs.com)
+* [Bower](http://bower.io)
+</code></pre><ul>
+<li>使用 promise (<code>$q</code>) 而非回调。这将使你的代码更加优雅、直观，并且免于回调地狱。</li>
+<li>尽可能使用 <code>$resource</code> 而非 <code>$http</code>。更高的抽象可以避免冗余。</li>
+<li>使用AngularJS的预压缩版 (像 <a href="https://github.com/btford/ngmin" target="_blank" rel="external">ngmin</a> 或 <a href="https://github.com/olov/ng-annotate" target="_blank" rel="external">ng-annotate</a>) 避免在压缩之后出现问题。</li>
+<li>不要使用全局变量或函数。通过依赖注入解决所有依赖，这可以减少 bug ，规避很多测试时的麻烦。</li>
+<li>为避免使用全局变量或函数，可以借助 Grunt 或 Gulp 把你的代码放到一个立即执行的函数表达式（IIFE）中。可用的插件有 <a href="https://www.npmjs.com/package/grunt-wrap" target="_blank" rel="external">grunt-wrap</a> 或 <a href="https://www.npmjs.com/package/gulp-wrap/" target="_blank" rel="external">gulp-wrap</a>。下面是 Gulp 的示例：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gulp.src(<span class="string">"./src/*.js"</span>)</div><div class="line">    .pipe(wrap(<span class="string">'(function()&#123;\n"use strict";\n&lt;%= contents %&gt;\n&#125;)();'</span>))</div><div class="line">    .pipe(gulp.dest(<span class="string">"./dist"</span>));</div></pre></td></tr></table></figure>
+<ul>
+<li>不要污染 <code>$scope</code>。仅添加与视图相关的函数和变量。</li>
+<li><a href="https://github.com/angular/angular.js/pull/4366/files" target="_blank" rel="external">使用 controllers 而非 <code>ngInit</code></a>。<code>ngInit</code> 只有在一种情况下的使用是合适的：用来给 <code>ngRepeat</code>的特殊属性赋予一个别名。除此之外, 你应该使用 controllers 而不是 <code>ngInit</code> 来初始化scope变量。<code>ngInit</code> 中的表达式会传递给 Angular 的 <code>$parse</code> 服务，通过词法分析，语法分析，求值等过程。这会导致:<ul>
+<li>对性能的巨大影响，因为解释器由 Javascript 写成</li>
+<li>多数情况下，<code>$parse</code> 服务中对表达式的缓存基本不起作用，因为 <code>ngInit</code> 表达式经常只有一次求值</li>
+<li>很容易出错，因为是模板中写字符串，没有针对表达式的语法高亮和进一步的编辑器支持</li>
+<li>不会抛出运行时错误</li>
+</ul>
+</li>
+<li>不要使用 <code>$</code> 前缀来命名变量, 属性和方法. 这种前缀是预留给 AngularJS 来使用的.</li>
+<li>当使用 DI 机制来解决依赖关系, 要根据他们的类型进行排序 -  AngularJS 内建的依赖要优先, 之后才是你自定义的：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.factory(<span class="string">'Service'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">$rootScope, $timeout, MyCustomDependency1, MyCustomDependency2</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="comment">//Something</span></div><div class="line">  &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h1 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h1><ul>
+<li><p>模块应该用驼峰式命名。为表明模块 <code>b</code> 是模块 <code>a</code> 的子模块, 可以用点号连接: <code>a.b</code> 。</p>
+<p>  有两种常见的组织模块的方式：</p>
+<ol>
+<li>按照功能组织</li>
+<li><p>按照组件类型组织</p>
+<p>当前并无太大差别，但前者更加清晰。同时，如果 lazy-loading modules 被实现的话 (当前并未列入 AngularJS 的路线图)，这种方式将改善应用的性能。</p>
+</li>
+</ol>
+</li>
+</ul>
+<h1 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h1><ul>
+<li>不要在控制器里操作 DOM，这会让你的控制器难以测试，而且违背了<a href="https://en.wikipedia.org/wiki/Separation_of_concerns" target="_blank" rel="external">关注点分离原则</a>。应该通过指令操作 DOM。</li>
+<li>通过控制器完成的功能命名控制器 (如：购物卡，主页，控制板)，并以字符串<code>Ctrl</code>结尾。</li>
+<li>控制器是纯 Javascript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor" target="_blank" rel="external">构造函数</a>，所以应该用首字母大写的驼峰命名法（<code>HomePageCtrl</code>, <code>ShoppingCartCtrl</code>, <code>AdminPanelCtrl</code>, 等等）。</li>
+<li>控制器不应该在全局中定义 (尽管 AngularJS 允许，但污染全局命名空间是个糟糕的实践)。</li>
+<li><p>使用以下语法定义控制器：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyCtrl</span>(<span class="params">dependency1, dependency2, ..., dependencyn</span>) </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">module</span>.controller(<span class="string">'MyCtrl'</span>, MyCtrl);</div></pre></td></tr></table></figure>
+<p> 为了避免在压缩代码时产生问题，你可以使用工具自动生成标准的数组定义式语法，如：<a href="https://github.com/olov/ng-annotate" target="_blank" rel="external">ng-annotate</a> （还有 grunt 任务 <a href="https://github.com/mzgol/grunt-ng-annotate" target="_blank" rel="external">grunt-ng-annotate</a>）</p>
+</li>
+<li><p>使用 <code>controller as</code> 语法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-controller=&quot;MainCtrl as main&quot;&gt;</div><div class="line">   &#123;&#123; main.title &#125;&#125;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">app.controller(<span class="string">'MainCtrl'</span>, MainCtrl);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">MainCtrl</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.title = <span class="string">'Some title'</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 使用 <code>controller as</code> 主要的优点是:</p>
+<ul>
+<li>创建了一个“独立”的组件——绑定的属性不属于 <code>$scope</code> 原型链。这是一个很好的实践，因为 <code>$scope</code> 原型继承有一些重要的缺点（这可能是为什么它在 Angular 2 中被移除了）：<ul>
+<li>Scope值的改变会在你不注意的地方有影响。</li>
+<li>难以重构。</li>
+<li><a href="http://jimhoskins.com/2012/12/14/nested-scopes-in-angularjs.html" target="_blank" rel="external">dot rule</a>‘.</li>
+</ul>
+</li>
+<li>当你不需要做必须由 <code>$scope</code> 完成的操作（比如<code>$scope.$broadcast</code>）时，移除掉了 <code>$scope</code>，就是为 Angular2 做好准备。</li>
+<li><p>语法上更接近于普通的 JavaScript 构造函数。</p>
+<p>想深入了解 <code>controller as</code> ，请看: <a href="http://toddmotto.com/digging-into-angulars-controller-as-syntax/" target="_blank" rel="external">digging-into-angulars-controller-as-syntax</a></p>
+</li>
+</ul>
+</li>
+<li><p>如果使用数组定义语法声明控制器，使用控制器依赖的原名。这将提高代码的可读性：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyCtrl</span>(<span class="params">s</span>) </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.controller(<span class="string">'MyCtrl'</span>, [<span class="string">'$scope'</span>, MyCtrl]);</div></pre></td></tr></table></figure>
+<p> 下面的代码更易理解</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyCtrl</span>(<span class="params">$scope</span>) </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">module</span>.controller(<span class="string">'MyCtrl'</span>, [<span class="string">'$scope'</span>, MyCtrl]);</div></pre></td></tr></table></figure>
+<p> 对于包含大量代码的需要上下滚动的文件尤其适用。这可能使你忘记某一变量是对应哪一个依赖。</p>
+</li>
+<li><p>尽可能的精简控制器。将通用函数抽象为独立的服务。</p>
+</li>
+<li><p>不要再控制器中写业务逻辑。把业务逻辑交给模型层的服务。<br>举个例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 这是把业务逻辑放在控制器的常见做法</span></div><div class="line">angular.module(<span class="string">'Store'</span>, [])</div><div class="line">.controller(<span class="string">'OrderCtrl'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">$scope</span>) </span>&#123;</div><div class="line"></div><div class="line">  $scope.items = [];</div><div class="line"></div><div class="line">  $scope.addToOrder = <span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</div><div class="line">    $scope.items.push(item);<span class="comment">//--&gt;控制器中的业务逻辑</span></div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  $scope.removeFromOrder = <span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</div><div class="line">    $scope.items.splice($scope.items.indexOf(item), <span class="number">1</span>);<span class="comment">//--&gt;控制器中的业务逻辑</span></div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  $scope.totalPrice = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> $scope.items.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">memo, item</span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> memo + (item.qty * item.price);<span class="comment">//--&gt;控制器中的业务逻辑</span></div><div class="line">    &#125;, <span class="number">0</span>);</div><div class="line">  &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>当你把业务逻辑交给模型层的服务，控制器看起来就会想这样：（关于 service-model 的实现，参看 ‘use services as your Model’）:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Order 在此作为一个 'model'</span></div><div class="line">angular.module(<span class="string">'Store'</span>, [])</div><div class="line">.controller(<span class="string">'OrderCtrl'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">Order</span>) </span>&#123;</div><div class="line"></div><div class="line">  $scope.items = Order.items;</div><div class="line"></div><div class="line">  $scope.addToOrder = <span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</div><div class="line">    Order.addToOrder(item);</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  $scope.removeFromOrder = <span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</div><div class="line">    Order.removeFromOrder(item);</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  $scope.totalPrice = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> Order.total();</div><div class="line">  &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>为什么控制器不应该包含业务逻辑和应用状态？</p>
+<ul>
+<li>控制器会在每个视图中被实例化，在视图被销毁时也要同时销毁</li>
+<li>控制器是不可重用的——它与视图有耦合</li>
+<li>Controllers are not meant to be injected</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>需要进行跨控制器通讯时，通过方法引用(通常是子控制器到父控制器的通讯)或者 <code>$emit</code>, <code>$broadcast</code> 及 <code>$on</code> 方法。发送或广播的消息应该限定在最小的作用域。</li>
+<li><p>制定一个通过 <code>$emit</code>, <code>$broadcast</code> 发送的消息列表并且仔细的管理以防命名冲突和bug。</p>
+<p> Example:</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// app.js</span></div><div class="line"><span class="comment">/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *</span></div><div class="line">Custom events:</div><div class="line">  - 'authorization-message' - description of the message</div><div class="line">    - &#123; user, role, action &#125; - data format</div><div class="line">      - user - a string, which contains the username</div><div class="line">      - role - an ID of the role the user has</div><div class="line">      - action - specific ation the user tries to perform</div><div class="line">* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */</div></pre></td></tr></table></figure>
+</li>
+<li><p>在需要格式化数据时将格式化逻辑封装成 <a href="#过滤器">过滤器</a> 并将其声明为依赖：</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFormat</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"><span class="built_in">module</span>.filter(<span class="string">'myFormat'</span>, myFormat);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyCtrl</span>(<span class="params">$scope, myFormatFilter</span>) </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.controller(<span class="string">'MyCtrl'</span>, MyCtrl);</div></pre></td></tr></table></figure>
+</li>
+<li><p>有内嵌的控制器时使用 “内嵌作用域” ( <code>controllerAs</code> 语法)：</p>
+<p> <strong>app.js</strong></p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.config(<span class="function"><span class="keyword">function</span> (<span class="params">$routeProvider</span>) </span>&#123;</div><div class="line">  $routeProvider</div><div class="line">    .when(<span class="string">'/route'</span>, &#123;</div><div class="line">      <span class="attr">templateUrl</span>: <span class="string">'partials/template.html'</span>,</div><div class="line">      <span class="attr">controller</span>: <span class="string">'HomeCtrl'</span>,</div><div class="line">      <span class="attr">controllerAs</span>: <span class="string">'home'</span></div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p> <strong>HomeCtrl</strong></p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">HomeCtrl</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.bindingValue = <span class="number">42</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> <strong>template.html</strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-bind=&quot;home.bindingValue&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><ul>
+<li>使用小写字母开头的驼峰法命名指令。</li>
+<li>在 link function 中使用 <code>scope</code> 而非 <code>$scope</code>。在 compile 中, 你已经定义参数的 post/pre link functions 将在函数被执行时传递, 你无法通过依赖注入改变他们。这种方式同样应用在 AngularJS 项目中。</li>
+<li>为你的指令添加自定义前缀以免与第三方指令冲突。</li>
+<li>不要使用 <code>ng</code> 或 <code>ui</code> 前缀，因为这些备用于 AngularJS 和 AngularJS UI。</li>
+<li>DOM 操作只通过指令完成。</li>
+<li>为你开发的可复用组件创建独立作用域。</li>
+<li>以属性和元素形式使用指令，而不是注释和 class。这会使你的代码可读性更高。</li>
+<li>使用 <code>scope.$on(&#39;$destroy&#39;, fn)</code> 来清除。这点在使用第三方指令的时候特别有用。</li>
+<li><p>处理不可信的数据时，不要忘记使用 <code>$sce</code> 。</p>
+<h1 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h1></li>
+<li><p>使用小写字母开头的驼峰法命名过滤器。</p>
+</li>
+<li>尽可能使过滤器精简。过滤器在 <code>$digest</code> loop 中被频繁调用，过于复杂的过滤器将使得整个应用缓慢。</li>
+<li>在过滤器中只做一件事。更加复杂的操作可以用 pipe 串联多个过滤器来实现。</li>
+</ul>
+<h1 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h1><p>这个部分包含了 AngularJS 服务组件的相关信息。下面提到的东西与定义服务的具体方式（<code>.provider</code>, <code>.factory</code>, <code>.service</code> 等）无关，除非有特别提到。</p>
+<ul>
+<li><p>用驼峰法命名服务。</p>
+<ul>
+<li><p>用首字母大写的驼峰法命名你自己的服务, 把服务写成构造函数的形式，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">MainCtrl</span>(<span class="params">$scope, User</span>) </span>&#123;</div><div class="line">  $scope.user = <span class="keyword">new</span> User(<span class="string">'foo'</span>, <span class="number">42</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.controller(<span class="string">'MainCtrl'</span>, MainCtrl);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">User</span>(<span class="params">name, age</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">  <span class="keyword">this</span>.age = age;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.factory(<span class="string">'User'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> User;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>用首字母小写的驼峰法命名其它所有的服务。</p>
+</li>
+</ul>
+</li>
+<li><p>把业务逻辑封装到服务中，把业务逻辑抽象为服务作为你的 <code>model</code>。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Order is the 'model'</span></div><div class="line">angular.module(<span class="string">'Store'</span>)</div><div class="line">.factory(<span class="string">'Order'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.items.push (item);</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> remove = <span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</div><div class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.items.indexOf(item) &gt; <span class="number">-1</span>) &#123;</div><div class="line">        <span class="keyword">this</span>.items.splice(<span class="keyword">this</span>.items.indexOf(item), <span class="number">1</span>);</div><div class="line">      &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> total = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.items.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">memo, item</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> memo + (item.qty * item.price);</div><div class="line">      &#125;, <span class="number">0</span>);</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">items</span>: [],</div><div class="line">      <span class="attr">addToOrder</span>: add,</div><div class="line">      <span class="attr">removeFromOrder</span>: remove,</div><div class="line">      <span class="attr">totalPrice</span>: total</div><div class="line">    &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如果需要例子展现如何在控制器中使用服务，请参考 ‘Avoid writing business logic inside controllers’。</p>
+<ul>
+<li><p>将业务逻辑封装成 <code>service</code> 而非 <code>factory</code>，这样我们可以更容易在服务间实现“经典式”继承：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Human</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//body</span></div><div class="line">&#125;</div><div class="line">Human.prototype.talk = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="string">"I'm talking"</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Developer</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">//body</span></div><div class="line">&#125;</div><div class="line">Developer.prototype = <span class="built_in">Object</span>.create(Human.prototype);</div><div class="line">Developer.prototype.code = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="string">"I'm coding"</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">myModule.service(<span class="string">'human'</span>, Human);</div><div class="line">myModule.service(<span class="string">'developer'</span>, Developer);</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用 <code>$cacheFactory</code> 进行会话级别的缓存，缓存网络请求或复杂运算的结果。</p>
+</li>
+<li><p>如果给定的服务需要配置，把配置相关代码放在 <code>config</code> 回调里，就像这样：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'demo'</span>, [])</div><div class="line">.config(<span class="function"><span class="keyword">function</span> (<span class="params">$provide</span>) </span>&#123;</div><div class="line">  $provide.provider(<span class="string">'sample'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> foo = <span class="number">42</span>;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">setFoo</span>: <span class="function"><span class="keyword">function</span> (<span class="params">f</span>) </span>&#123;</div><div class="line">        foo = f;</div><div class="line">      &#125;,</div><div class="line">      <span class="attr">$get</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">          <span class="attr">foo</span>: foo</div><div class="line">        &#125;;</div><div class="line">      &#125;</div><div class="line">    &#125;;</div><div class="line">  &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> demo = angular.module(<span class="string">'demo'</span>);</div><div class="line"></div><div class="line">demo.config(<span class="function"><span class="keyword">function</span> (<span class="params">sampleProvider</span>) </span>&#123;</div><div class="line">  sampleProvider.setFoo(<span class="number">41</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h1>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/03/24/angularjs-style-guide-zh/">angularjs-style-guide-zh</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">qingTeng</a></p>
+        <p><span>发布时间:</span>2017-03-24, 22:23:15</p>
+        <p><span>最后更新:</span>2017-03-24, 22:48:07</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/03/24/angularjs-style-guide-zh/" title="angularjs-style-guide-zh">https://xf27.github.io/qingTeng/2017/03/24/angularjs-style-guide-zh/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://xf27.github.io/qingTeng/2017/03/24/angularjs-style-guide-zh/　　作者: qingTeng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/03/23/AngularJs环境的准备/">
+                    AngularJs环境的准备
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#其它翻译版本"><span class="toc-number">2.</span> <span class="toc-text">其它翻译版本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#内容目录"><span class="toc-number">3.</span> <span class="toc-text">内容目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#概览"><span class="toc-number">4.</span> <span class="toc-text">概览</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录结构"><span class="toc-number">4.1.</span> <span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标记"><span class="toc-number">4.2.</span> <span class="toc-text">标记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命名约定"><span class="toc-number">4.3.</span> <span class="toc-text">命名约定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">4.4.</span> <span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#模块"><span class="toc-number">5.</span> <span class="toc-text">模块</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#控制器"><span class="toc-number">6.</span> <span class="toc-text">控制器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#指令"><span class="toc-number">7.</span> <span class="toc-text">指令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#过滤器"><span class="toc-number">8.</span> <span class="toc-text">过滤器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#服务"><span class="toc-number">9.</span> <span class="toc-text">服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#模板"><span class="toc-number">10.</span> <span class="toc-text">模板</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"angularjs-style-guide-zh　| qingTeng's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section class="youyan" id="comments">
+    <script>
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = 'http://v2.uyan.cc/code/uyan.js?uid=2126445';
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+    <div id="uyan_frame"></div>
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/03/23/AngularJs环境的准备/" title="下一篇: AngularJs环境的准备">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/angularjs-style-guide-zh/">angularjs-style-guide-zh</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/AngularJs环境的准备/">AngularJs环境的准备</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/Thank/">Thanks</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/学无止境，勇往直前/">学无止境，勇往直前</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/杭州有感/">杭州有感</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/小别离/">小别离</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/06/webpack/">webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/小诗四首/">小诗四首</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/02/小诗三首/">小诗三首</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/28/sublime快捷键/">sublime快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/let和const/">let和const</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/ES6重点基本语法学习笔记/">ES6重点基本语法学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/03/vue实例/">vue实例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/02/vue介绍/">vue介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/Front-end-Interview-questions/">小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/angularJs开发流程/">angularJs开发流程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/AngularJs/">angularJs基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/三月技术学习列表/">三月技术学习列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/15/【MAC】MARKDOWN编辑器推荐-IA-WRITER/">【MAC】写作工具推荐 iA Writer</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/11/七天七并发模型读书笔记/">七天七并发模型读书笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/05/Chrome插件开发简单示例/">Chrome插件开发简单示例</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Python编码规范-Google/">Python编码规范(Google)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/27/Python语言学习/">Python语言学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/24/Redis学习手册/">Redis学习手册</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/13/MacApp清单/">MacApp清单</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/12/GOOGLE搜索从入门到精通V4-0/">GOOGLE搜索从入门到精通V4.0</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/03/IntelliJ IDEA 快捷键大全 for Mac/">IntelliJ IDEA 快捷键大全 for Mac</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/20/linux系统管理与配置/">Linux基本应用-系统安装与启用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/19/linux基本应用-基本磁盘管理/">linux基本应用-基本磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/18/linux下shell编程-shell编程/">Linux基本应用-系统安装与启用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/17/linux下shell编程-vi编辑器/">linux下shell编程-vi编辑器</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/16/Linux基本应用-文件权限管理/">Linux基本应用-文件权限管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/15/linux基本应用-用户与组的管理/">linux基本应用-用户与组的管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/14/Linux基本应用-基本命令的使用/">Linux基本应用-基本命令的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/13/Linux基本应用-系统安装与启用/">Linux基本应用-系统安装与启用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/12/Linux常用命令集锦/">Linux常用命令集锦</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/04/02/小诗二首/">小诗二首</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/02/读书笔记》谷哥和亚马逊如何做产品/">读书笔记>>谷歌和亚马逊如何做产品</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/02/WeeklyPlanNote/">WeeklyPlanNote</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/02/linux环境变量及执行顺序介绍/">linux环境变量及执行顺序介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/02/小诗一首/">小诗一首</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/14/兼容总结/">兼容总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/13/Cookie/">cookie</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/12/AIAX/">AJAX</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/11/事件/">事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/09/this/">this</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/08/DOM/">DOM</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/07/Date和BOM/">Date&BOM</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/06/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/05/String字符串/">String字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/04/数组/">数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/03/函数/">函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/02/Javasciprt-循环/">Javascript-循环</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2014-2017 qingTeng
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by qingTeng <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

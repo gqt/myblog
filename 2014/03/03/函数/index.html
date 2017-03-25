@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="qingTeng" />
+
+
+
+<meta name="description" content="函数&amp;gt;形参&amp;gt;变量什么是函数？编程的角度： 具有某种功能的代码判断。生活的角度： 函数就是一个完成特定功能的工具">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数">
+<meta property="og:url" content="https://xf27.github.io/qingTeng/2014/03/03/函数/index.html">
+<meta property="og:site_name" content="qingTeng's Blog">
+<meta property="og:description" content="函数&amp;gt;形参&amp;gt;变量什么是函数？编程的角度： 具有某种功能的代码判断。生活的角度： 函数就是一个完成特定功能的工具">
+<meta property="og:image" content="https://xf27.github.io/qingTeng/img/js/max.png">
+<meta property="og:updated_time" content="2017-03-07T07:26:43.635Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="函数">
+<meta name="twitter:description" content="函数&amp;gt;形参&amp;gt;变量什么是函数？编程的角度： 具有某种功能的代码判断。生活的角度： 函数就是一个完成特定功能的工具">
+<meta name="twitter:image" content="https://xf27.github.io/qingTeng/img/js/max.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="qingTeng&#39;s Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>函数 | qingTeng&#39;s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">qingTeng</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">前端开发中的一枚妹子！</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/随笔">随笔</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/qingTenglove95@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/xf27/" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/A2/">A2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJs/">AngularJs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Front-end-Interview-questions/">Front-end-Interview-questions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dev/">dev</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/env/">env</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plan/">plan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/产品设计/">产品设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写作/">写作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原创/">原创</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快捷键/">快捷键</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推荐/">推荐</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/知识储备/">知识储备</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">qingTeng</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">qingTeng</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">前端开发中的一枚妹子！</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/随笔">随笔</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/qingTenglove95@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/xf27/" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-函数" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/03/03/函数/" class="article-date">
+      <time datetime="2014-03-03T08:09:25.000Z" itemprop="datePublished">2014-03-03</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      函数
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="函数-gt-形参-gt-变量"><a href="#函数-gt-形参-gt-变量" class="headerlink" title="函数&gt;形参&gt;变量"></a>函数&gt;形参&gt;变量</h1><h3 id="什么是函数？"><a href="#什么是函数？" class="headerlink" title="什么是函数？"></a>什么是函数？</h3><p>编程的角度： 具有某种功能的代码判断。<br>生活的角度： 函数就是一个完成特定功能的工具<br><a id="more"></a><br>所有的函数都具备参数，大多数的函数都具备返回值</p>
+<h3 id="函数如何创建？"><a href="#函数如何创建？" class="headerlink" title="函数如何创建？"></a>函数如何创建？</h3><pre><code>function test(){
+}
+</code></pre><h3 id="函数的好处有哪些？"><a href="#函数的好处有哪些？" class="headerlink" title="函数的好处有哪些？"></a>函数的好处有哪些？</h3><p>1) 代码复用<br>2) 封装（隐藏细节）<br>3) 控制代码的执行时机<br>1 声明式</p>
+<pre><code>function test(){
+//声明会被提前，可以在任何地方调用
+}
+</code></pre><p>2 赋值式</p>
+<pre><code>var test = function(){
+//只能在该函数以下位置，调用
+}
+</code></pre><p>两种创建方式的区别？？</p>
+<p>JS是一个脚本语言，那么它的代码，需要编译吗？ 需要<br>在编译的过程中，所有的声明语句，都会被提前。</p>
+<pre><code>b();
+a();
+function b(){
+     document.write(&quot;aa&quot;);
+}
+var a=function(){
+     document.write(&quot;123&quot;);
+} 
+</code></pre><p>//当执行函数b的时候，由于声明被提前，可以执行<br>//当执行函数a的时候，由于a仍未定义，不可执行</p>
+<p>如何执行函数？</p>
+<h3 id="函数与事件的结合？"><a href="#函数与事件的结合？" class="headerlink" title="函数与事件的结合？"></a>函数与事件的结合？</h3><p>onclick 单击<br>ondblclick 双击<br>onfocus 获得焦点<br>onblur 失去焦点<br>onmouseover 鼠标划入<br>onmouseout 鼠标划出<br>onmousemove 鼠标移动</p>
+<p>onload 页面加载完成</p>
+<p>onkeydown 键盘被按下<br>onkeyup 键盘被松开<br>onkeypress 键盘按下并松开</p>
+<p>onsubmit 表单提交事件</p>
+<p>onmouseenter 鼠标划入（区别于onmouseover）<br>onmouseleave 鼠标划出(区别于onmouseout)</p>
+<h3 id="什么是匿名函数？？"><a href="#什么是匿名函数？？" class="headerlink" title="什么是匿名函数？？"></a>什么是匿名函数？？</h3><pre><code>function(){
+//由于没名字，该函数无法调用
+}
+</code></pre><h3 id="匿名函数如何运行？？"><a href="#匿名函数如何运行？？" class="headerlink" title="匿名函数如何运行？？"></a>匿名函数如何运行？？</h3><pre><code>(function(){
+//函数在定义的同时，立即执行。 也叫作函数的自运行。
+})();
+</code></pre><h3 id="函数的参数及返回值是什么？"><a href="#函数的参数及返回值是什么？" class="headerlink" title="函数的参数及返回值是什么？"></a>函数的参数及返回值是什么？</h3><p>参数不做类型检查</p>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>栈结构特点： 先进后出， 后进先出<br>局部变量 属于 后进，因此应该优先被使用， 所以：</p>
+<pre><code>var a = 99;
+function test(){
+var a = 10;
+alert(a); //10
+}
+test();
+</code></pre><h3 id="为什么会有栈和堆？？"><a href="#为什么会有栈和堆？？" class="headerlink" title="为什么会有栈和堆？？"></a>为什么会有栈和堆？？</h3><p>索引思维：<br>栈相当于堆的索引</p>
+<h3 id="什么是变量声明提升？？"><a href="#什么是变量声明提升？？" class="headerlink" title="什么是变量声明提升？？"></a>什么是变量声明提升？？</h3><pre><code>var n = 2;
+(function(){
+console.log(n); //undefined 2
+var n = 10;
+console.log(n); //10
+})()
+//以上写法 等价于 以下写法：
+var n = 2;
+(function(){
+var n; //变量的声明不管写在哪里，都会被提升到该作用域的最前面
+console.log(n); //这里应该是undefined
+n = 10; //这里只是一个赋值动作
+console.log(n); //毫无疑问等于10
+})()
+</code></pre><h3 id="变量和函数重名的问题"><a href="#变量和函数重名的问题" class="headerlink" title="变量和函数重名的问题"></a>变量和函数重名的问题</h3><pre><code>var a = 10;
+function a(){}
+alert(typeof a);
+//以上写法 等价于 以下写法：
+var a;
+function a(){}
+a = 10;
+因此a最终被10覆盖，则为number类型
+</code></pre><h3 id="arguments是什么？-该对象包含了函数执行时，传入的所有参数"><a href="#arguments是什么？-该对象包含了函数执行时，传入的所有参数" class="headerlink" title="arguments是什么？ 该对象包含了函数执行时，传入的所有参数"></a>arguments是什么？ 该对象包含了函数执行时，传入的所有参数</h3><pre><code>function add(){
+  //console.log(arguments instanceof Array); //确认是不是数组类型
+  //console.log(arguments);
+  var sum = 0;
+  for(var i=0; i&lt;arguments.length; i++){
+       sum += arguments[i];
+  }
+       return sum;
+}
+     console.log( add(10,222,32,46,5,6, 11,10,35) );
+//arguments本身不是数组，而是经过封装的一个对象，它包含一个数组，即我们的参数列表
+//由于它可以当成数组来使用for循环遍历，因此，我们管这类对象，叫做伪数组
+</code></pre><h3 id="arguments-callee是什么？"><a href="#arguments-callee是什么？" class="headerlink" title="arguments.callee是什么？"></a>arguments.callee是什么？</h3><p>代表了函数本身</p>
+<pre><code>(function(num){
+if(num == 0) return 1;
+    return num * arguments.callee(num-1);
+  })(5);
+</code></pre><p>问题解析： (有名字的匿名函数)</p>
+<pre><code>  var a = function b(){
+    b = 3;
+  console.log(b);
+  }
+a();
+//function b 看做一个有名字的 匿名函数
+//一个有名字的匿名函数，其函数名 是只读的，不可更改
+//同时，该函数名只能在函数内部使用，相当于局部变量
+//b(); 报错，无法调用，找不到b函数
+</code></pre><h3 id="JSON字面量对象和new-对象-的使用方式有什么区别？"><a href="#JSON字面量对象和new-对象-的使用方式有什么区别？" class="headerlink" title="JSON字面量对象和new 对象 的使用方式有什么区别？"></a>JSON字面量对象和new 对象 的使用方式有什么区别？</h3><pre><code>//使用new关键字创建对象
+var cat = new Object();
+cat.name = &quot;狗狗&quot;;
+cat.age = 3;
+cat.eat = function(){
+     console.log(&quot;吃骨头！&quot;);
+}
+cat.sound = function(){
+     console.log(&quot;喵了个咪&quot;);
+}
+//使用json形式创建对象
+     var cat2 = {
+        name : &quot;狗狗&quot;,
+        age : 3,
+        eat : function(){
+          console.log(&quot;吃骨头！&quot;);
+        },
+        sound : function(){
+          console.log(&quot;喵了个咪&quot;);
+        }
+      };
+</code></pre><p>打印一个对象不存在的属性？</p>
+<pre><code>var obj = {
+  attr1 : &quot;10&quot;,
+  attr2 : 20,
+  attr3 : 30
+}
+</code></pre><p>如何判断对象是否存在某个属性？？</p>
+<pre><code>if(obj.attr){
+     //对于attr等于0或null， 条件不成立
+}
+if(&quot;attr&quot; in obj){
+     //判断attr是否存在于对象obj当中
+}
+问题解析：
+if (!(&quot;a&quot; in window)) {
+     var a = 1;
+}
+alert(a);
+
+var a = 1,
+b = function a(x) {
+     x &amp;&amp; a(--x);
+};
+alert(a);
+
+function a(x) {
+  return x * 2;
+}
+var a;
+alert(a);
+
+function b(x, y, a) {
+  arguments[2] = 10;
+  alert(a);
+}
+b(1, 2, 3);
+</code></pre><h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><pre><code>function m1(){
+  var x = 1;
+  return function(){
+  console.log(++x);
+  }
+}
+m1()(); //2
+m1()(); //2
+m1()(); //2
+
+var m2 = m1();
+m2(); //2
+m2(); //3
+m2(); //4
+</code></pre><p>垃圾回收机制： 自动回收<br>     GC</p>
+<p>关于值传递 (函数内部的更改不影响外部)</p>
+<pre><code>var a = 10;
+function add(a){
+     a++;
+}
+add(a);
+console.log(a);
+</code></pre><p>引用(指针 | 快捷方式)传递 （函数内部的更改会影响外部）</p>
+<pre><code>var arr = [1,2,3];
+function add2(arr){
+     arr[0]++;
+}
+add2(arr);
+console.log(arr);
+</code></pre><p>内存管理（栈和堆）</p>
+<p>（队列、链表）</p>
+<h3 id="函数递归-当一个函数调用了函数自身，就会形成递归"><a href="#函数递归-当一个函数调用了函数自身，就会形成递归" class="headerlink" title="函数递归 : 当一个函数调用了函数自身，就会形成递归"></a>函数递归 : 当一个函数调用了函数自身，就会形成递归</h3><h4 id="阶乘-100"><a href="#阶乘-100" class="headerlink" title="阶乘 100!"></a>阶乘 100!</h4><pre><code>100! = 100 * 99 * 98 * 97 * 96 ......
+100! = 100 * 99!
+     99! = 99 * 98!
+          98! = 98 * 97!
+n! = n * (n-1)!
+f(x) = x * f(x-1)
+
+function f(x) {
+     return x * f(x-1);
+}
+
+2 求和 1+2+3+4+5.........+n
+
+function sum(n){
+  if(n == 1) return 1;
+  return n + sum(n-1);
+}
+</code></pre><h4 id="最大公约数"><a href="#最大公约数" class="headerlink" title="最大公约数"></a>最大公约数</h4><p><img src="/img/js/max.png" alt="alt text" title="Title"></p>
+<pre><code>function divisor(x,y){ //辗转相除法
+  var r = x%y;
+  x = y;
+  y = r;
+  if(r==0) {
+       return x;
+  } else {
+       return divisor(x,y);
+  }
+}
+
+function divisor(x,y){ //更相减损法
+  if(x%2==0 &amp;&amp; y%2==0){
+       return 2*divisor(x/2,y/2);
+  } else {
+  var max = Math.max(x,y);
+  var min = Math.min(x,y);
+  var cha = max - min;
+    if(cha == min) {
+         return min;
+    } else {
+         return divisor(cha, min);
+    }
+  }
+}
+</code></pre><h4 id="斐波那契数列"><a href="#斐波那契数列" class="headerlink" title="斐波那契数列"></a>斐波那契数列</h4><pre><code>//1 1 2 3 5 8 13 21 34 55 89 .........
+//f(x) = f(x-1) + f(x-2);
+
+function f(x) {
+  if(x &lt;= 2) {
+    return 1;
+  }
+  return f(x-1) + f(x-2);
+}
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2014/03/03/函数/">函数</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">qingTeng</a></p>
+        <p><span>发布时间:</span>2014-03-03, 16:09:25</p>
+        <p><span>最后更新:</span>2017-03-07, 15:26:43</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2014/03/03/函数/" title="函数">https://xf27.github.io/qingTeng/2014/03/03/函数/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://xf27.github.io/qingTeng/2014/03/03/函数/　　作者: qingTeng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2014/03/04/数组/">
+                    数组
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2014/03/02/Javasciprt-循环/">
+                    Javascript-循环
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#函数-gt-形参-gt-变量"><span class="toc-number">1.</span> <span class="toc-text">函数>形参>变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是函数？"><span class="toc-number">1.0.1.</span> <span class="toc-text">什么是函数？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数如何创建？"><span class="toc-number">1.0.2.</span> <span class="toc-text">函数如何创建？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数的好处有哪些？"><span class="toc-number">1.0.3.</span> <span class="toc-text">函数的好处有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数与事件的结合？"><span class="toc-number">1.0.4.</span> <span class="toc-text">函数与事件的结合？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是匿名函数？？"><span class="toc-number">1.0.5.</span> <span class="toc-text">什么是匿名函数？？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#匿名函数如何运行？？"><span class="toc-number">1.0.6.</span> <span class="toc-text">匿名函数如何运行？？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数的参数及返回值是什么？"><span class="toc-number">1.0.7.</span> <span class="toc-text">函数的参数及返回值是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#作用域"><span class="toc-number">1.0.8.</span> <span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么会有栈和堆？？"><span class="toc-number">1.0.9.</span> <span class="toc-text">为什么会有栈和堆？？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是变量声明提升？？"><span class="toc-number">1.0.10.</span> <span class="toc-text">什么是变量声明提升？？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变量和函数重名的问题"><span class="toc-number">1.0.11.</span> <span class="toc-text">变量和函数重名的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#arguments是什么？-该对象包含了函数执行时，传入的所有参数"><span class="toc-number">1.0.12.</span> <span class="toc-text">arguments是什么？ 该对象包含了函数执行时，传入的所有参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#arguments-callee是什么？"><span class="toc-number">1.0.13.</span> <span class="toc-text">arguments.callee是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON字面量对象和new-对象-的使用方式有什么区别？"><span class="toc-number">1.0.14.</span> <span class="toc-text">JSON字面量对象和new 对象 的使用方式有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包"><span class="toc-number">1.0.15.</span> <span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数递归-当一个函数调用了函数自身，就会形成递归"><span class="toc-number">1.0.16.</span> <span class="toc-text">函数递归 : 当一个函数调用了函数自身，就会形成递归</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#阶乘-100"><span class="toc-number">1.0.16.1.</span> <span class="toc-text">阶乘 100!</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#最大公约数"><span class="toc-number">1.0.16.2.</span> <span class="toc-text">最大公约数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#斐波那契数列"><span class="toc-number">1.0.16.3.</span> <span class="toc-text">斐波那契数列</span></a></li></ol></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"函数　| qingTeng's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section class="youyan" id="comments">
+    <script>
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = 'http://v2.uyan.cc/code/uyan.js?uid=2126445';
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+    <div id="uyan_frame"></div>
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2014/03/04/数组/" title="上一篇: 数组">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2014/03/02/Javasciprt-循环/" title="下一篇: Javascript-循环">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/angularjs-style-guide-zh/">angularjs-style-guide-zh</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/AngularJs环境的准备/">AngularJs环境的准备</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/Thank/">Thanks</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/学无止境，勇往直前/">学无止境，勇往直前</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/杭州有感/">杭州有感</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/小别离/">小别离</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/06/webpack/">webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/小诗四首/">小诗四首</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/02/小诗三首/">小诗三首</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/28/sublime快捷键/">sublime快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/let和const/">let和const</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/ES6重点基本语法学习笔记/">ES6重点基本语法学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/03/vue实例/">vue实例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/02/vue介绍/">vue介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/Front-end-Interview-questions/">小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/angularJs开发流程/">angularJs开发流程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/AngularJs/">angularJs基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/三月技术学习列表/">三月技术学习列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/15/【MAC】MARKDOWN编辑器推荐-IA-WRITER/">【MAC】写作工具推荐 iA Writer</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/11/七天七并发模型读书笔记/">七天七并发模型读书笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/05/Chrome插件开发简单示例/">Chrome插件开发简单示例</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Python编码规范-Google/">Python编码规范(Google)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/27/Python语言学习/">Python语言学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/24/Redis学习手册/">Redis学习手册</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/13/MacApp清单/">MacApp清单</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/12/GOOGLE搜索从入门到精通V4-0/">GOOGLE搜索从入门到精通V4.0</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/03/IntelliJ IDEA 快捷键大全 for Mac/">IntelliJ IDEA 快捷键大全 for Mac</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/20/linux系统管理与配置/">Linux基本应用-系统安装与启用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/19/linux基本应用-基本磁盘管理/">linux基本应用-基本磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/18/linux下shell编程-shell编程/">Linux基本应用-系统安装与启用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/17/linux下shell编程-vi编辑器/">linux下shell编程-vi编辑器</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/16/Linux基本应用-文件权限管理/">Linux基本应用-文件权限管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/15/linux基本应用-用户与组的管理/">linux基本应用-用户与组的管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/14/Linux基本应用-基本命令的使用/">Linux基本应用-基本命令的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/13/Linux基本应用-系统安装与启用/">Linux基本应用-系统安装与启用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/12/Linux常用命令集锦/">Linux常用命令集锦</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/04/02/小诗二首/">小诗二首</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/02/读书笔记》谷哥和亚马逊如何做产品/">读书笔记>>谷歌和亚马逊如何做产品</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/02/WeeklyPlanNote/">WeeklyPlanNote</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/02/linux环境变量及执行顺序介绍/">linux环境变量及执行顺序介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/02/小诗一首/">小诗一首</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/14/兼容总结/">兼容总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/13/Cookie/">cookie</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/12/AIAX/">AJAX</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/11/事件/">事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/09/this/">this</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/08/DOM/">DOM</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/07/Date和BOM/">Date&BOM</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/06/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/05/String字符串/">String字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/04/数组/">数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/03/函数/">函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/02/Javasciprt-循环/">Javascript-循环</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2014-2017 qingTeng
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by qingTeng <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

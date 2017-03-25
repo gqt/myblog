@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="qingTeng" />
+
+
+
+<meta name="description" content="前端工程化如何判断一个数是回数 121 232function huisu(num){
+  if(num === num.split(&amp;apos; &amp;apos;).reverse().join(&amp;apos; &amp;apos;)){
+      console.log(&amp;apos;是回数&amp;apos;)
+  }else{
+    console.log(&amp;apos;不是回数&amp;apos;)
+  }
+}
+hu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小记">
+<meta property="og:url" content="https://xf27.github.io/qingTeng/2016/06/13/Front-end-Interview-questions/index.html">
+<meta property="og:site_name" content="qingTeng's Blog">
+<meta property="og:description" content="前端工程化如何判断一个数是回数 121 232function huisu(num){
+  if(num === num.split(&amp;apos; &amp;apos;).reverse().join(&amp;apos; &amp;apos;)){
+      console.log(&amp;apos;是回数&amp;apos;)
+  }else{
+    console.log(&amp;apos;不是回数&amp;apos;)
+  }
+}
+hu">
+<meta property="og:image" content="https://xf27.github.io/qingTeng/img/面试题/gulp.png">
+<meta property="og:image" content="https://xf27.github.io/qingTeng/img/面试题/42-1.png">
+<meta property="og:image" content="https://xf27.github.io/qingTeng/img/面试题/42-2.png">
+<meta property="og:image" content="https://xf27.github.io/qingTeng/img/面试题/43.png">
+<meta property="og:image" content="https://xf27.github.io/qingTeng/img/面试题/44.png">
+<meta property="og:image" content="https://xf27.github.io/qingTeng/img/面试题/45.png">
+<meta property="og:image" content="https://xf27.github.io/qingTeng/img/面试题/46.png">
+<meta property="og:image" content="https://xf27.github.io/qingTeng/img/面试题/49.png">
+<meta property="og:image" content="https://xf27.github.io/qingTeng/img/面试题/50.png">
+<meta property="og:image" content="https://xf27.github.io/qingTeng/img/面试题/51.png">
+<meta property="og:image" content="https://xf27.github.io/qingTeng/img/面试题/52.png">
+<meta property="og:image" content="https://xf27.github.io/qingTeng/img/面试题/组件设计.png">
+<meta property="og:updated_time" content="2017-03-07T15:11:26.363Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小记">
+<meta name="twitter:description" content="前端工程化如何判断一个数是回数 121 232function huisu(num){
+  if(num === num.split(&amp;apos; &amp;apos;).reverse().join(&amp;apos; &amp;apos;)){
+      console.log(&amp;apos;是回数&amp;apos;)
+  }else{
+    console.log(&amp;apos;不是回数&amp;apos;)
+  }
+}
+hu">
+<meta name="twitter:image" content="https://xf27.github.io/qingTeng/img/面试题/gulp.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="qingTeng&#39;s Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>小记 | qingTeng&#39;s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">qingTeng</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">前端开发中的一枚妹子！</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/随笔">随笔</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/qingTenglove95@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/xf27/" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/A2/">A2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJs/">AngularJs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Front-end-Interview-questions/">Front-end-Interview-questions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dev/">dev</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/env/">env</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plan/">plan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/产品设计/">产品设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写作/">写作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原创/">原创</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快捷键/">快捷键</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推荐/">推荐</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/知识储备/">知识储备</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">qingTeng</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">qingTeng</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">前端开发中的一枚妹子！</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/随笔">随笔</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/qingTenglove95@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/xf27/" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-Front-end-Interview-questions" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/13/Front-end-Interview-questions/" class="article-date">
+      <time datetime="2016-06-13T13:13:08.000Z" itemprop="datePublished">2016-06-13</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      小记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Front-end-Interview-questions/">Front-end-Interview-questions</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="前端工程化"><a href="#前端工程化" class="headerlink" title="前端工程化"></a>前端工程化</h2><h3 id="如何判断一个数是回数-121-232"><a href="#如何判断一个数是回数-121-232" class="headerlink" title="如何判断一个数是回数 121 232"></a>如何判断一个数是回数 121 232</h3><pre><code>function huisu(num){
+  if(num === num.split(&apos; &apos;).reverse().join(&apos; &apos;)){
+      console.log(&apos;是回数&apos;)
+  }else{
+    console.log(&apos;不是回数&apos;)
+  }
+}
+huisu(&apos;121&apos;)
+</code></pre><a id="more"></a>
+<h3 id="场景：你是第一天来公司上班的，项目代码托管在GitLab，项目地址：git-lab-com-org-project-git-现在有一处代码需要你修改。请下完成此项任务中，与git-gitlab相关的操作步骤。"><a href="#场景：你是第一天来公司上班的，项目代码托管在GitLab，项目地址：git-lab-com-org-project-git-现在有一处代码需要你修改。请下完成此项任务中，与git-gitlab相关的操作步骤。" class="headerlink" title="场景：你是第一天来公司上班的，项目代码托管在GitLab，项目地址：git@lab.com:org/project.git,现在有一处代码需要你修改。请下完成此项任务中，与git/gitlab相关的操作步骤。"></a>场景：你是第一天来公司上班的，项目代码托管在GitLab，项目地址：git@lab.com:org/project.git,现在有一处代码需要你修改。请下完成此项任务中，与git/gitlab相关的操作步骤。</h3><pre><code>第一步：$&gt; ssh-keygen -t rss -C zhangsan@abc.com
+第二步：拷贝公钥到gitlab
+第三步：
+$&gt; git config —global user.name zhangsan
+$&gt; git config —global user.email zhangsan@abc.com
+第四步：$&gt; git clone  git@lab.com:org/project.git
+第五步：$&gt; git checkout -b project-20170227-zhangsan-bugfix
+第六步：修改代码
+第七步：git status
+第八步：git add .
+第九不：git commit -am ‘bugfix’
+第八步：git push --set-upstream origin project-20170227-zhangsan-bugfix
+</code></pre><h3 id="CSS，JS代码压缩，以及代码CDN托管，图片整合。"><a href="#CSS，JS代码压缩，以及代码CDN托管，图片整合。" class="headerlink" title="CSS，JS代码压缩，以及代码CDN托管，图片整合。"></a>CSS，JS代码压缩，以及代码CDN托管，图片整合。</h3><p>（1）<strong>CSS,JS 代码压缩：</strong><br>可以应用gulp的gulp-uglify，gulp-minify-css模块完成；可以应用webpack的 UglifyJsPlugin压缩插件完成。<br>（2）<strong>CDN</strong>：<br>内容分发网络(CDN)是一个经策略性部署的整体系统，包括分布式存储、负载均衡、网络请求的重定向和内容管理4个要件。主要特点有：本地Cache加速，镜像服务，远程加速，带宽优化。关键技术有：内容发布，内容路由，内容交换，性能管理。CDN网站加速适合以咨询为主的网站。CDN是对域名加速不是对网站服务器加速。CDN和镜像站比较不需要访客手动选择要访问的镜像站。CDN使用后网站无需任何修改即可使用CDN获得加速效果。如果通过CDN后看到的网页还是旧网页，可以通过URL推送服务解决，新增的网页和图片不需要URL推送。使用动态网页可以不缓存即时性要求很高的网页和图片。CDN可以通过git或SVN来管理。<br>（3）<strong>图片整合</strong><br>减少网站加载时间的最有效的方式之一就是减少网站的HTTP请求数。实现这一目标的一个有效的方法就是通过CSS Sprites——将多个图片整合到一个图片中，然后再用CSS来定位。缺点是可维护性差。可以使用百度的fis/webpack来自动化管理sprite。</p>
+<h3 id="如何利用webpack把代码上传服务器以及转码测试？"><a href="#如何利用webpack把代码上传服务器以及转码测试？" class="headerlink" title="如何利用webpack把代码上传服务器以及转码测试？"></a>如何利用webpack把代码上传服务器以及转码测试？</h3><p>（1）<strong>代码上传：</strong><br>可以使用sftp-webpack-plugin，但是会把子文件夹给提取出来，不优雅。可以使用gulp+webpack来实现。<br>（2）<strong>转码测试</strong><br>webpack应用babel来对ES6转码，开启devtool: “source-map” 来进行浏览器测试。应用karma或mocha来做单元测试。</p>
+<h3 id="项目上线流程是怎样的？"><a href="#项目上线流程是怎样的？" class="headerlink" title="项目上线流程是怎样的？"></a>项目上线流程是怎样的？</h3><p>（1）<strong>流程建议</strong></p>
+<ul>
+<li>模拟线上的开发环境<br>本地反向代理线上真实环境开发即可。（apache，nginx，nodejs均可实现）</li>
+<li>模拟线上的测试环境<br>模拟线上的测试环境，其实是需要一台有真实数据的测试机，建议没条件搭daily的，就直接用线上数据测好了，只不过程序部分走你们的测试环境而已，有条件搭daily最好。</li>
+<li>可连调的测试环境<br>可连调的测试环境，分为2种。一种是开发测试都在一个局域网段，直接绑hosts即可，不在一个网段，就每人分配一台虚拟的测试机，放在大家都可以访问到的公司内网，代码直接往上布即可。</li>
+<li>自动化的上线系统<br>自动化的上线系统，可以采用Jenkins。如果没有，可以自行搭建一个简易的上线系统，原理是每次上线时都抽取最新的trunk或master，做一个tag，再打一个时间戳的标记，然后分发到cdn就行了。界面里就2个功能，打tag，回滚到某tag，部署。</li>
+<li>适合前后端的开发流程<br>开发流程依据公司所用到的工具，构建，框架。原则就是分散独立开发，互相不干扰，连调时有hosts可绑即可。<br>（2）<strong>简单的可操作流程</strong></li>
+<li>代码通过git管理，新需求创建新分支，分支开发，主干发布</li>
+<li>上线走简易上线系统，参见上一节</li>
+<li>通过gulp+webpack连到发布系统，一键集成，本地只关心原码开发</li>
+<li>本地环境通过webpack反向代理的server</li>
+<li>搭建基于linux的本地测试机，自动完成build+push功能<h3 id="工程化怎么管理的"><a href="#工程化怎么管理的" class="headerlink" title="工程化怎么管理的?"></a>工程化怎么管理的?</h3>gulp和webpack<br><img src="/img/面试题/gulp.png" alt="alt text" title="gulp和webpack"><h3 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a>git常用命令</h3>Workspace：工作区<br>Index / Stage：暂存区<br>Repository：仓库区（或本地仓库）<br>Remote：远程仓库<br>详细参见： <a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html</a></li>
+</ul>
+<h3 id="webpack-和-gulp对比"><a href="#webpack-和-gulp对比" class="headerlink" title="webpack 和 gulp对比"></a>webpack 和 gulp对比</h3><p>Gulp 就是为了规范前端开发流程，实现前后端分离、模块化开发、版本控制、文件合并与压缩、mock数据等功能的一个前端自动化构建工具。说的形象点，“Gulp就像是一个产品的流水线，整个产品从无到有，都要受流水线的控制，在流水线上我们可以对产品进行管理。” 另外，Gulp是通过task对整个开发过程进行构建。<br>Webpack 是当下最热门的前端资源模块化管理和打包工具。它可以将许多松散的模块按照依赖和规则打包成符合生产环境部署的前端资源。还可以将按需加载的模块进行代码分隔，等到实际需要的时候再异步加载。通过 loader的转换，任何形式的资源都可以视作模块，比如 CommonJs 模块、AMD 模块、ES6 模块、CSS、图片、JSON、Coffeescript、LESS 等。<br>Gulp和Webpack功能实现对比：从基本概念、启动本地Server、sass/less预编译、模块化开发、文件合并与压缩、mock数据、版本控制、组件控制八个方面对Gulp和Webpack进行对比。<br>详细参见： <a href="http://www.tuicool.com/articles/e632EbA" target="_blank" rel="external">http://www.tuicool.com/articles/e632EbA</a></p>
+<h3 id="webpack打包文件太大怎么办"><a href="#webpack打包文件太大怎么办" class="headerlink" title="webpack打包文件太大怎么办?"></a>webpack打包文件太大怎么办?</h3><p>webpack 把我们所有的文件都打包成一个 JS 文件，这样即使你是小项目，打包后的文件也会非常大。可以从去除不必要的插件，提取第三方库，代码压缩，代码分割，设置缓存几个方面着手优化。<br>详细参见： <a href="http://www.jianshu.com/p/a64735eb0e2b" target="_blank" rel="external">http://www.jianshu.com/p/a64735eb0e2b</a></p>
+<h3 id="不想让别人盗用你的图片，访问你的服务器资源该怎么处理？"><a href="#不想让别人盗用你的图片，访问你的服务器资源该怎么处理？" class="headerlink" title="不想让别人盗用你的图片，访问你的服务器资源该怎么处理？"></a>不想让别人盗用你的图片，访问你的服务器资源该怎么处理？</h3><p>目前常用的防盗链方法主要有两种：<br>（1）设置Referer：适合不想写代码的用户，也适合喜欢开发的用户<br>（2）签名URL：适合喜欢开发的用户<br>详细参见： <a href="https://yq.aliyun.com/articles/57931" target="_blank" rel="external">https://yq.aliyun.com/articles/57931</a></p>
+<h3 id="精灵图和base64如何选择？"><a href="#精灵图和base64如何选择？" class="headerlink" title="精灵图和base64如何选择？"></a>精灵图和base64如何选择？</h3><p>css精灵，用于一些小的图标不是特别多，一个的体积也稍大，比如大于10K（这个没有严格的界定）。<br>base64，用于小图标体积较小（相对于css精灵），多少都无所谓。字体图标，用于一些别人做好的图标库（也有少数自己去做的）用起来比较方便，他的图标只能用于单色，图标用只能于一种颜色。</p>
+<h3 id="webpack怎么引入第三方的库？"><a href="#webpack怎么引入第三方的库？" class="headerlink" title="webpack怎么引入第三方的库？"></a>webpack怎么引入第三方的库？</h3><ul>
+<li>拿jQuery为例：<pre><code>entry: {
+    page: &apos;path/to/page.js&apos;,
+    jquery: &apos;node_modules/jquery/dist/jquery.min.js&apos;
+}
+new HtmlWebpackPlugin({
+    filename: &apos;index.html&apos;,
+    template: &apos;index.html&apos;,
+    inject: true,
+    chunks: [&apos;jquery&apos;, &apos;page&apos;] // 按照先后顺序插入script标签
+ })
+</code></pre></li>
+</ul>
+<h3 id="如果线上出现bug-git怎么操作？"><a href="#如果线上出现bug-git怎么操作？" class="headerlink" title="如果线上出现bug git怎么操作？"></a>如果线上出现bug git怎么操作？</h3><p>参见第1题。</p>
+<h3 id="用过Nginx吗？都用过哪些？"><a href="#用过Nginx吗？都用过哪些？" class="headerlink" title="用过Nginx吗？都用过哪些？"></a>用过Nginx吗？都用过哪些？</h3><p>nginx是一个高性能的HTTP和反向代理服务器。<br>常使用场景：<br>（1）反向代理<br>（2）网站负载均衡<br>详细参见： <a href="http://www.cnblogs.com/hobinly/p/6023883.html" target="_blank" rel="external">http://www.cnblogs.com/hobinly/p/6023883.html</a></p>
+<h2 id="移动端布局与适配"><a href="#移动端布局与适配" class="headerlink" title="移动端布局与适配"></a>移动端布局与适配</h2><h3 id="iscroll安卓低版本卡顿，如何解决？"><a href="#iscroll安卓低版本卡顿，如何解决？" class="headerlink" title="iscroll安卓低版本卡顿，如何解决？"></a>iscroll安卓低版本卡顿，如何解决？</h3><p>方案一：iScroll v5.1.3 设置momentum: true<br>方案二：配置probeType<br>方案三：开启硬价加速：给scroll元素增加css样式：-webkit-transform:translate3d(0,0,0);<br>方案四：判断手机版系统版本，应用原生CSS：overflow:scroll-y</p>
+<h3 id="移动布局自适应不同屏幕的几种方式"><a href="#移动布局自适应不同屏幕的几种方式" class="headerlink" title="移动布局自适应不同屏幕的几种方式"></a>移动布局自适应不同屏幕的几种方式</h3><p>（1）响应式布局<br>（2）100%布局（弹性布局）<br>（3）等比缩放布局（rem）</p>
+<h3 id="请说下移动端常见的适配不同屏幕大小的方法"><a href="#请说下移动端常见的适配不同屏幕大小的方法" class="headerlink" title="请说下移动端常见的适配不同屏幕大小的方法?"></a>请说下移动端常见的适配不同屏幕大小的方法?</h3><p>参照第15题</p>
+<h3 id="移动端屏幕适配"><a href="#移动端屏幕适配" class="headerlink" title="移动端屏幕适配?"></a>移动端屏幕适配?</h3><p>参照第15题</p>
+<h3 id="你们做移动端平时在什么浏览器上测试？"><a href="#你们做移动端平时在什么浏览器上测试？" class="headerlink" title="你们做移动端平时在什么浏览器上测试？"></a>你们做移动端平时在什么浏览器上测试？</h3><p>Chrome，Safari，微信X5，UC，其他手机自带浏览器</p>
+<h3 id="说说移动端是如何调试的？"><a href="#说说移动端是如何调试的？" class="headerlink" title="说说移动端是如何调试的？"></a>说说移动端是如何调试的？</h3><p>用Nginx反向代理进行局域网真机测试</p>
+<h3 id="说说ICONFONT是如何用的？"><a href="#说说ICONFONT是如何用的？" class="headerlink" title="说说ICONFONT是如何用的？"></a>说说ICONFONT是如何用的？</h3><h3 id="说说移动端Web分辨率"><a href="#说说移动端Web分辨率" class="headerlink" title="说说移动端Web分辨率"></a>说说移动端Web分辨率</h3><h2 id="性能和效率"><a href="#性能和效率" class="headerlink" title="性能和效率"></a>性能和效率</h2><h3 id="你平时如何评测你写的前端代码的性能和效率。"><a href="#你平时如何评测你写的前端代码的性能和效率。" class="headerlink" title="你平时如何评测你写的前端代码的性能和效率。"></a>你平时如何评测你写的前端代码的性能和效率。</h3><p>Chrome DevTools的Timeline: 是用来排查应用性能瓶颈的最佳工具。<br>Chrome DevTools的Audits: 对页面性能进行检测，根据测试的结果进行优化。<br>第三方工具Yslow。<br>详细参见：<br><a href="http://www.cnblogs.com/-simon/p/5883336.html" target="_blank" rel="external">http://www.cnblogs.com/-simon/p/5883336.html</a><br><a href="http://blog.csdn.net/ivan0609/article/details/45508365" target="_blank" rel="external">http://blog.csdn.net/ivan0609/article/details/45508365</a><br><a href="http://www.wtoutiao.com/p/1305TZW.html" target="_blank" rel="external">http://www.wtoutiao.com/p/1305TZW.html</a></p>
+<h3 id="如何优化页面，加快页面的加载速度-至少5条"><a href="#如何优化页面，加快页面的加载速度-至少5条" class="headerlink" title="如何优化页面，加快页面的加载速度(至少5条)"></a>如何优化页面，加快页面的加载速度(至少5条)</h3><p>（1）优化图片资源的格式和大小<br>（2）开启网络压缩<br>（3）使用浏览器缓存<br>（4）减少重定向请求<br>（5）使用CDN存储静态资源<br>（6）减少DNS查询次数<br>（7）压缩css和js内容<br>详细参见： <a href="http://www.mahaixiang.cn/wyzz/1589.html" target="_blank" rel="external">http://www.mahaixiang.cn/wyzz/1589.html</a></p>
+<h3 id="怎么保证多人开发进行内存泄漏的检查（内存分析工具）"><a href="#怎么保证多人开发进行内存泄漏的检查（内存分析工具）" class="headerlink" title="怎么保证多人开发进行内存泄漏的检查（内存分析工具）"></a>怎么保证多人开发进行内存泄漏的检查（内存分析工具）</h3><p>使用xcode里面的Analyze进行静态分析，为避免不必要的麻烦，多人开发的时候尽量使用ARC。<br>详细参见： <a href="http://www.jianshu.com/p/424c15b9b73a" target="_blank" rel="external">http://www.jianshu.com/p/424c15b9b73a</a></p>
+<h3 id="前后端性能如何调优？"><a href="#前后端性能如何调优？" class="headerlink" title="前后端性能如何调优？"></a>前后端性能如何调优？</h3><p>参照第20题</p>
+<h3 id="浏览器http请求过多怎么解决"><a href="#浏览器http请求过多怎么解决" class="headerlink" title="浏览器http请求过多怎么解决?"></a>浏览器http请求过多怎么解决?</h3><p>（1）合并JS、CSS文件<br>（2）合并图片css sprite<br>（3）使用Image maps<br>（4）data嵌入图片：如base64<br>（5）使用CDN，减少http请求头</p>
+<h2 id="Web安全"><a href="#Web安全" class="headerlink" title="Web安全"></a>Web安全</h2><h3 id="你所了解到的Web攻击技术"><a href="#你所了解到的Web攻击技术" class="headerlink" title="你所了解到的Web攻击技术"></a>你所了解到的Web攻击技术</h3><p>（1）XSS攻击<br>（2）CSRF攻击<br>（3）网络劫持攻击<br>（4）控制台注入代码<br>（5）钓鱼<br>详细参见： <a href="http://blog.csdn.net/fengyinchao/article/details/52303118" target="_blank" rel="external">http://blog.csdn.net/fengyinchao/article/details/52303118</a></p>
+<h3 id="如何防止XSS攻击"><a href="#如何防止XSS攻击" class="headerlink" title="如何防止XSS攻击?"></a>如何防止XSS攻击?</h3><p>（1）将前端输出数据都进行转义<br>（2）将输出的字符串中的\反斜杠进行转义<br>（3）从url中获取的信息，防止方法是由后端获取，在前端转义后再行输出<br>（4）使用cookie的HttpOnly属性，保护好cookie<br>详细参见： <a href="http://blog.csdn.net/fengyinchao/article/details/52303118" target="_blank" rel="external">http://blog.csdn.net/fengyinchao/article/details/52303118</a></p>
+<h3 id="项目中有没有用过加密，哪种加密算法？"><a href="#项目中有没有用过加密，哪种加密算法？" class="headerlink" title="项目中有没有用过加密，哪种加密算法？"></a>项目中有没有用过加密，哪种加密算法？</h3><p>项目中没有用过，但我了解几个加密算法：<br>（1）RSA加密<br>（2）MD5加密<br>（3）SHA256加密</p>
+<h3 id="聊一聊网页的分段传输与渲染"><a href="#聊一聊网页的分段传输与渲染" class="headerlink" title="聊一聊网页的分段传输与渲染"></a>聊一聊网页的分段传输与渲染</h3><h3 id="百度移动端首页秒开是如何做到的？"><a href="#百度移动端首页秒开是如何做到的？" class="headerlink" title="百度移动端首页秒开是如何做到的？"></a>百度移动端首页秒开是如何做到的？</h3><h3 id="前端速度统计（性能统计）如何做？"><a href="#前端速度统计（性能统计）如何做？" class="headerlink" title="前端速度统计（性能统计）如何做？"></a>前端速度统计（性能统计）如何做？</h3><h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><h3 id="如果让你来制作一个访问量很高的大型网站，你会如何来管理所有css、js文件、图片？"><a href="#如果让你来制作一个访问量很高的大型网站，你会如何来管理所有css、js文件、图片？" class="headerlink" title="如果让你来制作一个访问量很高的大型网站，你会如何来管理所有css、js文件、图片？"></a>如果让你来制作一个访问量很高的大型网站，你会如何来管理所有css、js文件、图片？</h3><p>（1）遵循自定的一套CSS，JS和图片文件和文件夹命名规范<br>（2）依托采用的前端工程化工具，依照工具脚手架规范 (gulp, webpack, grunt, yeoman)<br>（3）依据采用的框架规范（Vue, React, jQuery）</p>
+<h3 id="如果没有框架、怎么搭建你的项目"><a href="#如果没有框架、怎么搭建你的项目" class="headerlink" title="如果没有框架、怎么搭建你的项目"></a>如果没有框架、怎么搭建你的项目</h3><p>应用原生JS自己尝试搭建一个MVC架构：<br>(1) 基本模块<br>common：公共的一组件，下面的各模块都会用到<br>config：配置模块，解决框架的配置问题<br>startup：启动模块，解决框架和Servlet如何进行整合的问题<br>plugin：插件模块，插件机制的实现，提供IPlugin的抽象实现<br>routing：路由模块，解决请求路径的解析问题，提供了IRoute的抽象实现和基本实现<br>controller：控制器模块，解决的是如何产生控制器<br>model：视图模型模块，解决的是如何绑定方法的参数<br>action：action模块，解决的是如何调用方法以及方法返回的结果，提供了IActionResult的抽象实现和基本实现<br>view：视图模块，解决的是各种视图引擎和框架的适配<br>filter：过滤器模块，解决是执行Action，返回IActionResult前后的AOP功能，提供了IFilter的抽象实现以及基本实现<br>（2）扩展模块<br>filters：一些IFilter的实现<br>results：一些IActionResult的实现<br>routes：一些IRoute的实现<br>plugins：一些IPlugin的实现<br>详细参见： <a href="http://www.cnblogs.com/lovecindywang/p/4444915.html" target="_blank" rel="external">http://www.cnblogs.com/lovecindywang/p/4444915.html</a></p>
+<h3 id="在选择框架的时候要从哪方面入手"><a href="#在选择框架的时候要从哪方面入手" class="headerlink" title="在选择框架的时候要从哪方面入手"></a>在选择框架的时候要从哪方面入手</h3><p>考虑技术组成，新技术，新框架，语言及发布等<br>开发效率，团队喜好，依次来决定哪个框架更适合当前的团队和项目。上线时间<br>(1)jQuery<br>项目功能简单。不需要做成一个单页面应用，就不需要MVC框架。项目是一个遗留系统。<br>(2)AngularJS<br>性能要求不高，开发速度快，混合开发能力的ionic框架.基于Angular.js应用的运行效率，有更大的改进空间。Angualr2需要学习新的语言，需慎重选择。<br>(3)React</p>
+<ul>
+<li>优:<br>三个原因:<strong>一</strong>通过Virtual DOM提高运行效率，<strong>二</strong>通过组件化提高开发效率。大型项目首选。<strong>三</strong>React Native、React VR等等,可以让React运行在不同的平台之上。我们还能通过react轻松编写原生应用，还有VR应用。</li>
+<li><p>缺：<br>react只是一个view层，为了优化DOM的操作而存在的。为了完成一个完整的应用，我们还需要路由库、执行单向流库、web API调用库、测试库、依赖管理库等等，搭建出一个完整的react项目，还需要做大量的额外工作。<br>(4)Vue.js<br>可以使用熟悉的HTML和CSS来编码。Vue.js使用了Virtual DOM、Reactive及组件化的思想，可以让我们集中精力于编写应用，而不是应用的性能。<br>对于没有Angualr和React经验的团队，并且规模不大的前端项目来说，Vue.js是一个非常好的选择。</p>
+<h3 id="聊一聊前端模板与渲染"><a href="#聊一聊前端模板与渲染" class="headerlink" title="聊一聊前端模板与渲染"></a>聊一聊前端模板与渲染</h3><p>(1)页面级的渲染，后端模板<br>如smarty，这种方式的特点是展示数据块，直接后端拼装好数据与模板，展现到用户面前，对SEO友好。<br>(2)异步的请求与新增模板，前端模板<br>如Mustache,ArtTemplate,前端解析模板的引擎的语法，与后端解析模板引擎语法一致</p>
+<h2 id="混合开发"><a href="#混合开发" class="headerlink" title="混合开发"></a>混合开发</h2><h3 id="UIWebView和JavaScript之间是怎么交互的"><a href="#UIWebView和JavaScript之间是怎么交互的" class="headerlink" title="UIWebView和JavaScript之间是怎么交互的?"></a>UIWebView和JavaScript之间是怎么交互的?</h3><p>UIWebView是iOS SDK中渲染网面的控件，在显示网页的时候，我们可以hack网页然后显示想显示的内容。其中就要用的JavaScript的知识，而UIWebView与javascript交互的方法就是stringByEvaluatingJavaScriptFromString:<br>有了这个方法我们可以通过objc调用javascript,可以注入javascript<br>JS调用OC方法原理就是利用UIWebView重定向请求，传一些命令到我们的UIWebView，在UIWebView的delegate的方法中接收这些命令，并根据命令执行相应的objc方法。这样就相当于在javascript中调用objc的方法。</p>
+<p>在Android中，我们有固有组件webview，经过设置可以让它支持我们的js的渲染，然后在代码中设置(WebViewClient/WebChromeClient)让应用跳转页面时在本webview中跳转，通过webview.loadurl(String str)方法可以在需要的地方加载我们前端的页面或者调用前端所定义的方法(wv.loadUrl(“javascript:sendDataToAndroid(“我是来自js的哟，你看到了吗”)”))，我们再通过javascriptInterface接口设置我们前端和android通讯的标识，wv.addJavascriptInterface(new MJavascriptInterface(getApplicationContext()),”WebViewFunc”);</p>
+</li>
+</ul>
+<p>这样前端就可以在页面上调用我们的方法了，fun1方法是在android中定义的Window.WebViewFunc.fun1();</p>
+<p>总之，前端和android或者ios进行结合开发，我们称之为混合开发，原理就是在原生的开发语言中，我们提供了一个组件webview,这个组件就是我们的原生语言的浏览器，但是我们得自行设置让其能够完美支持我们的应用，需要设置对应的标识，然后连接起来，我们称之为JavasciptInterface.</p>
+<h3 id="混合开发桥接api是怎么调用的，需要引入类库嘛-调用的对象是什么"><a href="#混合开发桥接api是怎么调用的，需要引入类库嘛-调用的对象是什么" class="headerlink" title="混合开发桥接api是怎么调用的，需要引入类库嘛?调用的对象是什么?"></a>混合开发桥接api是怎么调用的，需要引入类库嘛?调用的对象是什么?</h3><p>Hybrid框架结构<br>    Hybrid App = H5 APP + Native框架<br>      H5 APP用来实现功能逻辑和页面渲染<br>      Native框架提供webView和设备接口供H5调用<br><strong>方案一</strong> 重混合应用，在开发原生应用的基础上，嵌入WebView但是整体的架构使用原生应用提供，一般这样的开发由Native开发人员和Web前端开发人员组成。Native开发人员会写好基本的架构以及API让Web开发人员开发界面以及大部分的渲染。保证到交互设计，以及开发都有一个比较折中的效果出来，优化得也会有很棒的效果。<br>Hybrid App 技术发展的早期，web的运行性能称为主要瓶颈！<br>为了解决性能问题Hybrid App走向”重混”。<br>    通过WebView：实现流畅的多页加载和专场动画。<br>    使用Native UI组件：框架、菜单、日期等。<br>    “重混”的优缺点<br>    优点：<br>      -提升了运行性能<br>      -增强了交互体验<br>    缺点：<br>      -Web和Native技术交叉混杂<br>      -需要同时掌握Web和Native技术，学习难度增加<br>      -一个页面与web组件也有Native组件，编程调试困难<br>    需要引入各自需要的各种依赖工具<br><strong>方案二</strong>轻混合应用，使用PhoneGap、AppCan之类的中间件，以WebView作为用户界面层，以Javascript作为基本逻辑，以及和中间件通讯，再由中间件访问底层API的方式，进行应用开发。这种架构一般会非常依赖WebView层的性能。<br>随着时代的发展，手机硬件、浏览器技术、无线网络技术都得到了大幅的提升，H5已经可以支持复杂应用，并拥有良好的运行性能。使用轻混方案的App也越来越多。<br>目前我们要学习的Hybrid App开发就是方案二，使用H5+JS+Native框架开发当前轻混合应用。<br>   Phonegap引入phonegap.js或者cordova.js，对象为navigator<br>   Dcloud引入mui.js或者其他的js组件，对象为plus<br>   apiloud引入各种第三方插件，对象为api<br>   顺便提一下，2012年8月，微信公众平台的上线，重新定义了移动应用：移动应用=ipone App + Android App +微信</p>
+<h3 id="读一下你对支付，推送（远程，本地）的理解"><a href="#读一下你对支付，推送（远程，本地）的理解" class="headerlink" title="读一下你对支付，推送（远程，本地）的理解"></a>读一下你对支付，推送（远程，本地）的理解</h3><p>消息的推送主要有两种：<br>一种是本地推送，主要应用在系统的工具中，例如：闹钟，生日提醒等；实现本地推送需要以下三个步骤：<br>  1.实例化一个本地推送对象<br>  2.设置通知对象的各个属性<br>  3.添加本地推送对象<br>  一种是远程消息推送，主要应用联网设备的信息推送，例如：邮件，各种软件的广告或优惠信息的推送。远程推送比较复杂，需要使用开发者账号进行申请证书，获得实现推送功能的配置文件，所以想要实现远程推送功能，必须要有开发者账号并且生成配置文件<br>  1.完成证书的申请和Xcode的配置<br>  2.在Demo中注册远程服务对象，并设置其代理<br>  3.找一个简单的App服务器进行消息推送(推荐使用：pushMeBaby,github网站上就有)<br>  4.运行PushMeBaby<br>参考网址：<a href="http://blog.csdn.net/u014642572/article/details/26857717" target="_blank" rel="external">http://blog.csdn.net/u014642572/article/details/26857717</a></p>
+<h3 id="什么是代理和通知，写一下他们基本的实现方式"><a href="#什么是代理和通知，写一下他们基本的实现方式" class="headerlink" title="什么是代理和通知，写一下他们基本的实现方式"></a>什么是代理和通知，写一下他们基本的实现方式</h3><p><img src="/img/面试题/42-1.png" alt="alt text" title="42-1"><br><img src="/img/面试题/42-2.png" alt="alt text" title="42-2"></p>
+<h3 id="UIViewController的生命周期"><a href="#UIViewController的生命周期" class="headerlink" title="UIViewController的生命周期"></a>UIViewController的生命周期</h3><p><img src="/img/面试题/43.png" alt="alt text" title="43"></p>
+<h3 id="rem布局字体太大怎么处理"><a href="#rem布局字体太大怎么处理" class="headerlink" title="rem布局字体太大怎么处理?"></a>rem布局字体太大怎么处理?</h3><p><img src="/img/面试题/44.png" alt="alt text" title="44"></p>
+<h3 id="如何调用原生的接口？"><a href="#如何调用原生的接口？" class="headerlink" title="如何调用原生的接口？"></a>如何调用原生的接口？</h3><p><img src="/img/面试题/45.png" alt="alt text" title="45"></p>
+<h3 id="微信支付怎么做？说说流程"><a href="#微信支付怎么做？说说流程" class="headerlink" title="微信支付怎么做？说说流程"></a>微信支付怎么做？说说流程</h3><p><img src="/img/面试题/46.png" alt="alt text" title="46"></p>
+<h3 id="混合开发的注意点"><a href="#混合开发的注意点" class="headerlink" title="混合开发的注意点"></a>混合开发的注意点</h3><p>  增强WebView:原生WebView基本是PC平台浏览器内核的移植，但对于移动场景并不完全适合，各种硬件API得不到HTML5原生支持。因此对于WebView的种种Hack、增强应运而生，甚至出现了基于增强WebView提供第三方服务的。</p>
+<ul>
+<li>路由：应用内跳转由于加入了WebView而变得复杂起来，同时由于组件化、模块化的问题，路由也成为人们讨论的重点。</li>
+<li>缓存：移动网络条件差，为了用户体验，必须要做资源缓存和预加载。</li>
+<li>通信：即HTML5和Native之间的通信。利用系统提供的桥接API可以实现，不过在应用上还有着一些坑点和安全问题。</li>
+</ul>
+<h2 id="浏览器与操作系统"><a href="#浏览器与操作系统" class="headerlink" title="浏览器与操作系统"></a>浏览器与操作系统</h2><h3 id="谈谈你对内存管理的理解。"><a href="#谈谈你对内存管理的理解。" class="headerlink" title="谈谈你对内存管理的理解。"></a>谈谈你对内存管理的理解。</h3><h3 id="聊一聊前端存储。"><a href="#聊一聊前端存储。" class="headerlink" title="聊一聊前端存储。"></a>聊一聊前端存储。</h3><h2 id="NodeJS"><a href="#NodeJS" class="headerlink" title="NodeJS"></a>NodeJS</h2><h3 id="谈谈你对Socket编程的理解，及实现原理，Socket之间是怎么通讯的"><a href="#谈谈你对Socket编程的理解，及实现原理，Socket之间是怎么通讯的" class="headerlink" title="谈谈你对Socket编程的理解，及实现原理，Socket之间是怎么通讯的"></a>谈谈你对Socket编程的理解，及实现原理，Socket之间是怎么通讯的</h3><p><img src="/img/面试题/49.png" alt="alt text" title="socket"><br><a href="https://www.zhihu.com/question/29637351" target="_blank" rel="external">https://www.zhihu.com/question/29637351</a><br><a href="http://blog.csdn.net/panker2008/article/details/46502783?ref=myread" target="_blank" rel="external">http://blog.csdn.net/panker2008/article/details/46502783?ref=myread</a></p>
+<h3 id="WEB应用从服务器主动推送Data到客户端有哪些方式"><a href="#WEB应用从服务器主动推送Data到客户端有哪些方式" class="headerlink" title="WEB应用从服务器主动推送Data到客户端有哪些方式?"></a>WEB应用从服务器主动推送Data到客户端有哪些方式?</h3><p><img src="/img/面试题/50.png" alt="alt text" title="web应用"></p>
+<h3 id="简述Node-js的适用场景？"><a href="#简述Node-js的适用场景？" class="headerlink" title="简述Node.js的适用场景？"></a>简述Node.js的适用场景？</h3><p><img src="/img/面试题/51.png" alt="alt text" title="适用场景"></p>
+<h3 id="什么是HTTPS，做什么用的呢？如何开启HTTPS？"><a href="#什么是HTTPS，做什么用的呢？如何开启HTTPS？" class="headerlink" title="什么是HTTPS，做什么用的呢？如何开启HTTPS？"></a>什么是HTTPS，做什么用的呢？如何开启HTTPS？</h3><p><img src="/img/面试题/52.png" alt="alt text" title="https"><br><a href="https://segmentfault.com/a/1190000006199237?" target="_blank" rel="external">https://segmentfault.com/a/1190000006199237?</a><br>utm_source=tuicool&amp;utm_medium=referral</p>
+<h3 id="你们原来公司如何发送的新消息推送？"><a href="#你们原来公司如何发送的新消息推送？" class="headerlink" title="你们原来公司如何发送的新消息推送？"></a>你们原来公司如何发送的新消息推送？</h3><h3 id="如何用NodeJS搭建中间层？"><a href="#如何用NodeJS搭建中间层？" class="headerlink" title="如何用NodeJS搭建中间层？"></a>如何用NodeJS搭建中间层？</h3><h2 id="组件设计"><a href="#组件设计" class="headerlink" title="组件设计"></a>组件设计</h2><h3 id="设计一个弹框组件，组件宽度为屏幕高度的50-，宽度为屏幕宽度的80-，水平垂直居中。组件有header，body，footer三部分，header中有标题，可定制，body区域，footer区域有确定和取消按钮，可定制两个按钮的文字内容，组件外的内容有遮罩，点击遮罩和取消按钮时关闭弹框，参照下图。"><a href="#设计一个弹框组件，组件宽度为屏幕高度的50-，宽度为屏幕宽度的80-，水平垂直居中。组件有header，body，footer三部分，header中有标题，可定制，body区域，footer区域有确定和取消按钮，可定制两个按钮的文字内容，组件外的内容有遮罩，点击遮罩和取消按钮时关闭弹框，参照下图。" class="headerlink" title="设计一个弹框组件，组件宽度为屏幕高度的50%，宽度为屏幕宽度的80%，水平垂直居中。组件有header，body，footer三部分，header中有标题，可定制，body区域，footer区域有确定和取消按钮，可定制两个按钮的文字内容，组件外的内容有遮罩，点击遮罩和取消按钮时关闭弹框，参照下图。"></a>设计一个弹框组件，组件宽度为屏幕高度的50%，宽度为屏幕宽度的80%，水平垂直居中。组件有header，body，footer三部分，header中有标题，可定制，body区域，footer区域有确定和取消按钮，可定制两个按钮的文字内容，组件外的内容有遮罩，点击遮罩和取消按钮时关闭弹框，参照下图。</h3><p><img src="/img/面试题/组件设计.png" alt="alt text" title="组件设计"></p>
+<h3 id="实现一个手势滑动轮播图组件。效果参考：https-static-xiaohongchun-com-goods-4514-请在手机里打开"><a href="#实现一个手势滑动轮播图组件。效果参考：https-static-xiaohongchun-com-goods-4514-请在手机里打开" class="headerlink" title="实现一个手势滑动轮播图组件。效果参考：https://static.xiaohongchun.com/goods/4514(请在手机里打开)"></a>实现一个手势滑动轮播图组件。效果参考：<a href="https://static.xiaohongchun.com/goods/4514(请在手机里打开" target="_blank" rel="external">https://static.xiaohongchun.com/goods/4514(请在手机里打开</a>)</h3><h3 id="设计基于观察者模式的事件绑定机制"><a href="#设计基于观察者模式的事件绑定机制" class="headerlink" title="设计基于观察者模式的事件绑定机制"></a>设计基于观察者模式的事件绑定机制</h3><h3 id="jq自己扩展过什么插件"><a href="#jq自己扩展过什么插件" class="headerlink" title="jq自己扩展过什么插件?"></a>jq自己扩展过什么插件?</h3><h3 id="侧滑菜单如何实现"><a href="#侧滑菜单如何实现" class="headerlink" title="侧滑菜单如何实现?"></a>侧滑菜单如何实现?</h3><h3 id="权限管理如何实现"><a href="#权限管理如何实现" class="headerlink" title="权限管理如何实现?"></a>权限管理如何实现?</h3><h3 id="让你实现一个检测闭合回路怎么实现？"><a href="#让你实现一个检测闭合回路怎么实现？" class="headerlink" title="让你实现一个检测闭合回路怎么实现？"></a>让你实现一个检测闭合回路怎么实现？</h3><h3 id="一个大数组，可能存了100万个数字，要从其中取出来第二大的数的下标，有什么快速的方法？"><a href="#一个大数组，可能存了100万个数字，要从其中取出来第二大的数的下标，有什么快速的方法？" class="headerlink" title="一个大数组，可能存了100万个数字，要从其中取出来第二大的数的下标，有什么快速的方法？"></a>一个大数组，可能存了100万个数字，要从其中取出来第二大的数的下标，有什么快速的方法？</h3><h2 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h2><h3 id="单个组件怎么测试性能"><a href="#单个组件怎么测试性能" class="headerlink" title="单个组件怎么测试性能"></a>单个组件怎么测试性能</h3><h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><h3 id="redux中间件"><a href="#redux中间件" class="headerlink" title="redux中间件"></a>redux中间件</h3><h3 id="redux有什么缺点"><a href="#redux有什么缺点" class="headerlink" title="redux有什么缺点"></a>redux有什么缺点</h3><h3 id="react组件的划分业务组件技术组件？"><a href="#react组件的划分业务组件技术组件？" class="headerlink" title="react组件的划分业务组件技术组件？"></a>react组件的划分业务组件技术组件？</h3><h3 id="react周期函数"><a href="#react周期函数" class="headerlink" title="react周期函数"></a>react周期函数</h3><h3 id="react性能优化是哪个周期函数？"><a href="#react性能优化是哪个周期函数？" class="headerlink" title="react性能优化是哪个周期函数？"></a>react性能优化是哪个周期函数？</h3><h3 id="为什么虚拟dom会提高性能"><a href="#为什么虚拟dom会提高性能" class="headerlink" title="为什么虚拟dom会提高性能?"></a>为什么虚拟dom会提高性能?</h3><h3 id="diff算法"><a href="#diff算法" class="headerlink" title="diff算法?"></a>diff算法?</h3><h3 id="react性能优化方案"><a href="#react性能优化方案" class="headerlink" title="react性能优化方案"></a>react性能优化方案</h3><h3 id="简述flux-思想"><a href="#简述flux-思想" class="headerlink" title="简述flux 思想"></a>简述flux 思想</h3><h3 id="React项目用过什么脚手架？Mern-Yeoman"><a href="#React项目用过什么脚手架？Mern-Yeoman" class="headerlink" title="React项目用过什么脚手架？Mern? Yeoman?"></a>React项目用过什么脚手架？Mern? Yeoman?</h3><h2 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js</h2><h3 id="vue与react的对比-如何选型？从性能，生态圈，数据量，数据的传递上，作比较"><a href="#vue与react的对比-如何选型？从性能，生态圈，数据量，数据的传递上，作比较" class="headerlink" title="vue与react的对比,如何选型？从性能，生态圈，数据量，数据的传递上，作比较"></a>vue与react的对比,如何选型？从性能，生态圈，数据量，数据的传递上，作比较</h3><h3 id="vue-slot是做什么的"><a href="#vue-slot是做什么的" class="headerlink" title="vue slot是做什么的?"></a>vue slot是做什么的?</h3><h3 id="vue和angular的优缺点以及适用场合"><a href="#vue和angular的优缺点以及适用场合" class="headerlink" title="vue和angular的优缺点以及适用场合?"></a>vue和angular的优缺点以及适用场合?</h3><h3 id="vue路由实现原理"><a href="#vue路由实现原理" class="headerlink" title="vue路由实现原理?"></a>vue路由实现原理?</h3><h3 id="你们vue项目是打包了一js文件-一css文件-还是有多个？"><a href="#你们vue项目是打包了一js文件-一css文件-还是有多个？" class="headerlink" title="你们vue项目是打包了一js文件  一css文件 还是有多个？"></a>你们vue项目是打包了一js文件  一css文件 还是有多个？</h3><h3 id="vue遇到的坑，如何解决的？"><a href="#vue遇到的坑，如何解决的？" class="headerlink" title="vue遇到的坑，如何解决的？"></a>vue遇到的坑，如何解决的？</h3><h3 id="vue的双向绑定的原理，和angular的对比"><a href="#vue的双向绑定的原理，和angular的对比" class="headerlink" title="vue的双向绑定的原理，和angular的对比"></a>vue的双向绑定的原理，和angular的对比</h3><h3 id="vue-cli，脚手架"><a href="#vue-cli，脚手架" class="headerlink" title="vue-cli，脚手架"></a>vue-cli，脚手架</h3><h3 id="Vue里面router-link在电脑上有用，在安卓上没反应怎么解决？"><a href="#Vue里面router-link在电脑上有用，在安卓上没反应怎么解决？" class="headerlink" title="Vue里面router-link在电脑上有用，在安卓上没反应怎么解决？"></a>Vue里面router-link在电脑上有用，在安卓上没反应怎么解决？</h3><h2 id="框架底层"><a href="#框架底层" class="headerlink" title="框架底层"></a>框架底层</h2><h3 id="jQuery源码中值得借鉴的？"><a href="#jQuery源码中值得借鉴的？" class="headerlink" title="jQuery源码中值得借鉴的？"></a>jQuery源码中值得借鉴的？</h3><h3 id="ready是怎么实现的"><a href="#ready是怎么实现的" class="headerlink" title="$.ready是怎么实现的?"></a>$.ready是怎么实现的?</h3><h3 id="懒加载的实现原理"><a href="#懒加载的实现原理" class="headerlink" title="懒加载的实现原理?"></a>懒加载的实现原理?</h3><h3 id="双向数据绑定和单向数据的区别"><a href="#双向数据绑定和单向数据的区别" class="headerlink" title="双向数据绑定和单向数据的区别?"></a>双向数据绑定和单向数据的区别?</h3><h3 id="怎么实现一个类似于const功能的方法？"><a href="#怎么实现一个类似于const功能的方法？" class="headerlink" title="怎么实现一个类似于const功能的方法？"></a>怎么实现一个类似于const功能的方法？</h3><h3 id="使用原生js模拟一个apply方法"><a href="#使用原生js模拟一个apply方法" class="headerlink" title="使用原生js模拟一个apply方法"></a>使用原生js模拟一个apply方法</h3><h3 id="Object-create-和直接创建对象有什么区别？"><a href="#Object-create-和直接创建对象有什么区别？" class="headerlink" title="Object.create()和直接创建对象有什么区别？"></a>Object.create()和直接创建对象有什么区别？</h3><h3 id="使用for-in-遍历对象和使用Object-keys来遍历对象有什么区别？"><a href="#使用for-in-遍历对象和使用Object-keys来遍历对象有什么区别？" class="headerlink" title="使用for  in  遍历对象和使用Object.keys来遍历对象有什么区别？"></a>使用for  in  遍历对象和使用Object.keys来遍历对象有什么区别？</h3><h3 id="深拷贝和浅拷贝以及应用场景"><a href="#深拷贝和浅拷贝以及应用场景" class="headerlink" title="深拷贝和浅拷贝以及应用场景"></a>深拷贝和浅拷贝以及应用场景</h3><h3 id="原型链，闭包与继承"><a href="#原型链，闭包与继承" class="headerlink" title="原型链，闭包与继承"></a>原型链，闭包与继承</h3><h2 id="AngularJS"><a href="#AngularJS" class="headerlink" title="AngularJS"></a>AngularJS</h2><h3 id="对bootstrap的掌握、为什么用angular-bootstrap搭建后台管理系统"><a href="#对bootstrap的掌握、为什么用angular-bootstrap搭建后台管理系统" class="headerlink" title="对bootstrap的掌握、为什么用angular+bootstrap搭建后台管理系统"></a>对bootstrap的掌握、为什么用angular+bootstrap搭建后台管理系统</h3><h3 id="angular-中ng-if-和ng-show-hide-有什么区别？"><a href="#angular-中ng-if-和ng-show-hide-有什么区别？" class="headerlink" title="angular 中ng-if 和ng-show/hide 有什么区别？"></a>angular 中ng-if 和ng-show/hide 有什么区别？</h3><h3 id="Angular-中ng-click中写的表达式，可以用js原生上的方法吗？为什么？"><a href="#Angular-中ng-click中写的表达式，可以用js原生上的方法吗？为什么？" class="headerlink" title="Angular 中ng-click中写的表达式，可以用js原生上的方法吗？为什么？"></a>Angular 中ng-click中写的表达式，可以用js原生上的方法吗？为什么？</h3><h3 id="内置filter都有哪些？"><a href="#内置filter都有哪些？" class="headerlink" title="内置filter都有哪些？"></a>内置filter都有哪些？</h3><h3 id="如何自定义filter"><a href="#如何自定义filter" class="headerlink" title="如何自定义filter?"></a>如何自定义filter?</h3><h3 id="factory、service-和-provider-是什么关系？"><a href="#factory、service-和-provider-是什么关系？" class="headerlink" title="factory、service 和 provider 是什么关系？"></a>factory、service 和 provider 是什么关系？</h3><h3 id="angular-的数据绑定采用什么机制？详述原理"><a href="#angular-的数据绑定采用什么机制？详述原理" class="headerlink" title="angular 的数据绑定采用什么机制？详述原理"></a>angular 的数据绑定采用什么机制？详述原理</h3><h3 id="两个平级界面块-a-和-b，如果-a-中触发一个事件，有哪些方式能让-b-知道？详述原理"><a href="#两个平级界面块-a-和-b，如果-a-中触发一个事件，有哪些方式能让-b-知道？详述原理" class="headerlink" title="两个平级界面块 a 和 b，如果 a 中触发一个事件，有哪些方式能让 b 知道？详述原理"></a>两个平级界面块 a 和 b，如果 a 中触发一个事件，有哪些方式能让 b 知道？详述原理</h3><h3 id="一个-angular-应用应当如何良好地分层？"><a href="#一个-angular-应用应当如何良好地分层？" class="headerlink" title="一个 angular 应用应当如何良好地分层？"></a>一个 angular 应用应当如何良好地分层？</h3><h3 id="angular-应用常用哪些路由库，各自的区别是什么？"><a href="#angular-应用常用哪些路由库，各自的区别是什么？" class="headerlink" title="angular 应用常用哪些路由库，各自的区别是什么？"></a>angular 应用常用哪些路由库，各自的区别是什么？</h3><h3 id="如果通过angular的directive规划一套全组件化体系，可能遇到哪些挑战？"><a href="#如果通过angular的directive规划一套全组件化体系，可能遇到哪些挑战？" class="headerlink" title="如果通过angular的directive规划一套全组件化体系，可能遇到哪些挑战？"></a>如果通过angular的directive规划一套全组件化体系，可能遇到哪些挑战？</h3><h3 id="分属不同团队进行开发的-angular-应用，如果要做整合，可能会遇到哪些问题，如何解决？"><a href="#分属不同团队进行开发的-angular-应用，如果要做整合，可能会遇到哪些问题，如何解决？" class="headerlink" title="分属不同团队进行开发的 angular 应用，如果要做整合，可能会遇到哪些问题，如何解决？"></a>分属不同团队进行开发的 angular 应用，如果要做整合，可能会遇到哪些问题，如何解决？</h3><h3 id="angular-的缺点有哪些？"><a href="#angular-的缺点有哪些？" class="headerlink" title="angular 的缺点有哪些？"></a>angular 的缺点有哪些？</h3><h3 id="如何看待-angular-1-2-中引入的-controller-as-语法？"><a href="#如何看待-angular-1-2-中引入的-controller-as-语法？" class="headerlink" title="如何看待 angular 1.2 中引入的 controller as 语法？"></a>如何看待 angular 1.2 中引入的 controller as 语法？</h3><h3 id="详述-angular-的-“依赖注入”。"><a href="#详述-angular-的-“依赖注入”。" class="headerlink" title="详述 angular 的 “依赖注入”。"></a>详述 angular 的 “依赖注入”。</h3><h3 id="当你简单的动态给页面插入html时，此时html带有angular的语法不会执行的，为什么？"><a href="#当你简单的动态给页面插入html时，此时html带有angular的语法不会执行的，为什么？" class="headerlink" title="当你简单的动态给页面插入html时，此时html带有angular的语法不会执行的，为什么？"></a>当你简单的动态给页面插入html时，此时html带有angular的语法不会执行的，为什么？</h3><h3 id="使用ng-repeat出错：Error-ngRepeat-dupes-，怎么回事？"><a href="#使用ng-repeat出错：Error-ngRepeat-dupes-，怎么回事？" class="headerlink" title="使用ng-repeat出错：Error: [ngRepeat:dupes]，怎么回事？"></a>使用ng-repeat出错：Error: [ngRepeat:dupes]，怎么回事？</h3><h3 id="ng-repeat迭代数组的时候，如果数组中有相同值，会有什么问题，如何解决？"><a href="#ng-repeat迭代数组的时候，如果数组中有相同值，会有什么问题，如何解决？" class="headerlink" title="ng-repeat迭代数组的时候，如果数组中有相同值，会有什么问题，如何解决？"></a>ng-repeat迭代数组的时候，如果数组中有相同值，会有什么问题，如何解决？</h3><h3 id="使用第三方插件或者原生的js修改angular中的model或者view的值时，相应的model或者view的值不会变化，也就是angular的双向数据绑定失效，怎么回事？"><a href="#使用第三方插件或者原生的js修改angular中的model或者view的值时，相应的model或者view的值不会变化，也就是angular的双向数据绑定失效，怎么回事？" class="headerlink" title="使用第三方插件或者原生的js修改angular中的model或者view的值时，相应的model或者view的值不会变化，也就是angular的双向数据绑定失效，怎么回事？"></a>使用第三方插件或者原生的js修改angular中的model或者view的值时，相应的model或者view的值不会变化，也就是angular的双向数据绑定失效，怎么回事？</h3><h3 id="angular中注入方式有推断式注入、-inject注入、内联式注入，当然这三种方式在angular中是等效的，但推断式注入对于压缩的-JavaScript-代码来说是不起作用的，为什么？"><a href="#angular中注入方式有推断式注入、-inject注入、内联式注入，当然这三种方式在angular中是等效的，但推断式注入对于压缩的-JavaScript-代码来说是不起作用的，为什么？" class="headerlink" title="angular中注入方式有推断式注入、$inject注入、内联式注入，当然这三种方式在angular中是等效的，但推断式注入对于压缩的 JavaScript 代码来说是不起作用的，为什么？"></a>angular中注入方式有推断式注入、$inject注入、内联式注入，当然这三种方式在angular中是等效的，但推断式注入对于压缩的 JavaScript 代码来说是不起作用的，为什么？</h3><h3 id="如何看待angular2？"><a href="#如何看待angular2？" class="headerlink" title="如何看待angular2？"></a>如何看待angular2？</h3><p><a href="http://www.tuicool.com/articles/ymmq2mf" target="_blank" rel="external">http://www.tuicool.com/articles/ymmq2mf</a><br><a href="http://www.cnblogs.com/laixiangran/p/4938732.html" target="_blank" rel="external">http://www.cnblogs.com/laixiangran/p/4938732.html</a></p>
+<h2 id="公司情况"><a href="#公司情况" class="headerlink" title="公司情况"></a>公司情况</h2><h3 id="公司组织架构"><a href="#公司组织架构" class="headerlink" title="公司组织架构"></a>公司组织架构</h3><h2 id="综合问题"><a href="#综合问题" class="headerlink" title="综合问题"></a>综合问题</h2><h3 id="请列举你知道的前端框架？常用的前端开发工具？开发过哪些应用和组件？"><a href="#请列举你知道的前端框架？常用的前端开发工具？开发过哪些应用和组件？" class="headerlink" title="请列举你知道的前端框架？常用的前端开发工具？开发过哪些应用和组件？"></a>请列举你知道的前端框架？常用的前端开发工具？开发过哪些应用和组件？</h3><h3 id="常用的库有哪些？常用的前端开发工具是什么？开发过什么应运或组件？"><a href="#常用的库有哪些？常用的前端开发工具是什么？开发过什么应运或组件？" class="headerlink" title="常用的库有哪些？常用的前端开发工具是什么？开发过什么应运或组件？"></a>常用的库有哪些？常用的前端开发工具是什么？开发过什么应运或组件？</h3><h3 id="项目测试没问题。但是放到线上就有问题了，你是怎么分析解决的？"><a href="#项目测试没问题。但是放到线上就有问题了，你是怎么分析解决的？" class="headerlink" title="项目测试没问题。但是放到线上就有问题了，你是怎么分析解决的？"></a>项目测试没问题。但是放到线上就有问题了，你是怎么分析解决的？</h3><h3 id="ES6里面你用过什么"><a href="#ES6里面你用过什么" class="headerlink" title="ES6里面你用过什么?"></a>ES6里面你用过什么?</h3><h3 id="如何管理团队"><a href="#如何管理团队" class="headerlink" title="如何管理团队?"></a>如何管理团队?</h3><h3 id="你做过的你负责的最难的数据交互模块是？"><a href="#你做过的你负责的最难的数据交互模块是？" class="headerlink" title="你做过的你负责的最难的数据交互模块是？"></a>你做过的你负责的最难的数据交互模块是？</h3><h3 id="你平时写过什么业务逻辑？"><a href="#你平时写过什么业务逻辑？" class="headerlink" title="你平时写过什么业务逻辑？"></a>你平时写过什么业务逻辑？</h3><h3 id="你负责的具体是什么模块？"><a href="#你负责的具体是什么模块？" class="headerlink" title="你负责的具体是什么模块？"></a>你负责的具体是什么模块？</h3><h3 id="你掌握的技术栈有哪些？"><a href="#你掌握的技术栈有哪些？" class="headerlink" title="你掌握的技术栈有哪些？"></a>你掌握的技术栈有哪些？</h3>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/06/13/Front-end-Interview-questions/">小记</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">qingTeng</a></p>
+        <p><span>发布时间:</span>2016-06-13, 21:13:08</p>
+        <p><span>最后更新:</span>2017-03-07, 23:11:26</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/06/13/Front-end-Interview-questions/" title="小记">https://xf27.github.io/qingTeng/2016/06/13/Front-end-Interview-questions/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://xf27.github.io/qingTeng/2016/06/13/Front-end-Interview-questions/　　作者: qingTeng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/10/02/vue介绍/">
+                    vue介绍
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/03/15/angularJs开发流程/">
+                    angularJs开发流程
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前端工程化"><span class="toc-number">1.</span> <span class="toc-text">前端工程化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何判断一个数是回数-121-232"><span class="toc-number">1.1.</span> <span class="toc-text">如何判断一个数是回数 121 232</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#场景：你是第一天来公司上班的，项目代码托管在GitLab，项目地址：git-lab-com-org-project-git-现在有一处代码需要你修改。请下完成此项任务中，与git-gitlab相关的操作步骤。"><span class="toc-number">1.2.</span> <span class="toc-text">场景：你是第一天来公司上班的，项目代码托管在GitLab，项目地址：git@lab.com:org/project.git,现在有一处代码需要你修改。请下完成此项任务中，与git/gitlab相关的操作步骤。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS，JS代码压缩，以及代码CDN托管，图片整合。"><span class="toc-number">1.3.</span> <span class="toc-text">CSS，JS代码压缩，以及代码CDN托管，图片整合。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何利用webpack把代码上传服务器以及转码测试？"><span class="toc-number">1.4.</span> <span class="toc-text">如何利用webpack把代码上传服务器以及转码测试？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#项目上线流程是怎样的？"><span class="toc-number">1.5.</span> <span class="toc-text">项目上线流程是怎样的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工程化怎么管理的"><span class="toc-number">1.6.</span> <span class="toc-text">工程化怎么管理的?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git常用命令"><span class="toc-number">1.7.</span> <span class="toc-text">git常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack-和-gulp对比"><span class="toc-number">1.8.</span> <span class="toc-text">webpack 和 gulp对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack打包文件太大怎么办"><span class="toc-number">1.9.</span> <span class="toc-text">webpack打包文件太大怎么办?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不想让别人盗用你的图片，访问你的服务器资源该怎么处理？"><span class="toc-number">1.10.</span> <span class="toc-text">不想让别人盗用你的图片，访问你的服务器资源该怎么处理？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#精灵图和base64如何选择？"><span class="toc-number">1.11.</span> <span class="toc-text">精灵图和base64如何选择？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack怎么引入第三方的库？"><span class="toc-number">1.12.</span> <span class="toc-text">webpack怎么引入第三方的库？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如果线上出现bug-git怎么操作？"><span class="toc-number">1.13.</span> <span class="toc-text">如果线上出现bug git怎么操作？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用过Nginx吗？都用过哪些？"><span class="toc-number">1.14.</span> <span class="toc-text">用过Nginx吗？都用过哪些？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#移动端布局与适配"><span class="toc-number">2.</span> <span class="toc-text">移动端布局与适配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#iscroll安卓低版本卡顿，如何解决？"><span class="toc-number">2.1.</span> <span class="toc-text">iscroll安卓低版本卡顿，如何解决？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移动布局自适应不同屏幕的几种方式"><span class="toc-number">2.2.</span> <span class="toc-text">移动布局自适应不同屏幕的几种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#请说下移动端常见的适配不同屏幕大小的方法"><span class="toc-number">2.3.</span> <span class="toc-text">请说下移动端常见的适配不同屏幕大小的方法?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移动端屏幕适配"><span class="toc-number">2.4.</span> <span class="toc-text">移动端屏幕适配?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#你们做移动端平时在什么浏览器上测试？"><span class="toc-number">2.5.</span> <span class="toc-text">你们做移动端平时在什么浏览器上测试？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#说说移动端是如何调试的？"><span class="toc-number">2.6.</span> <span class="toc-text">说说移动端是如何调试的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#说说ICONFONT是如何用的？"><span class="toc-number">2.7.</span> <span class="toc-text">说说ICONFONT是如何用的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#说说移动端Web分辨率"><span class="toc-number">2.8.</span> <span class="toc-text">说说移动端Web分辨率</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#性能和效率"><span class="toc-number">3.</span> <span class="toc-text">性能和效率</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#你平时如何评测你写的前端代码的性能和效率。"><span class="toc-number">3.1.</span> <span class="toc-text">你平时如何评测你写的前端代码的性能和效率。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何优化页面，加快页面的加载速度-至少5条"><span class="toc-number">3.2.</span> <span class="toc-text">如何优化页面，加快页面的加载速度(至少5条)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#怎么保证多人开发进行内存泄漏的检查（内存分析工具）"><span class="toc-number">3.3.</span> <span class="toc-text">怎么保证多人开发进行内存泄漏的检查（内存分析工具）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前后端性能如何调优？"><span class="toc-number">3.4.</span> <span class="toc-text">前后端性能如何调优？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器http请求过多怎么解决"><span class="toc-number">3.5.</span> <span class="toc-text">浏览器http请求过多怎么解决?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web安全"><span class="toc-number">4.</span> <span class="toc-text">Web安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#你所了解到的Web攻击技术"><span class="toc-number">4.1.</span> <span class="toc-text">你所了解到的Web攻击技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何防止XSS攻击"><span class="toc-number">4.2.</span> <span class="toc-text">如何防止XSS攻击?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#项目中有没有用过加密，哪种加密算法？"><span class="toc-number">4.3.</span> <span class="toc-text">项目中有没有用过加密，哪种加密算法？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#聊一聊网页的分段传输与渲染"><span class="toc-number">4.4.</span> <span class="toc-text">聊一聊网页的分段传输与渲染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#百度移动端首页秒开是如何做到的？"><span class="toc-number">4.5.</span> <span class="toc-text">百度移动端首页秒开是如何做到的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前端速度统计（性能统计）如何做？"><span class="toc-number">4.6.</span> <span class="toc-text">前端速度统计（性能统计）如何做？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#架构"><span class="toc-number">5.</span> <span class="toc-text">架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如果让你来制作一个访问量很高的大型网站，你会如何来管理所有css、js文件、图片？"><span class="toc-number">5.1.</span> <span class="toc-text">如果让你来制作一个访问量很高的大型网站，你会如何来管理所有css、js文件、图片？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如果没有框架、怎么搭建你的项目"><span class="toc-number">5.2.</span> <span class="toc-text">如果没有框架、怎么搭建你的项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在选择框架的时候要从哪方面入手"><span class="toc-number">5.3.</span> <span class="toc-text">在选择框架的时候要从哪方面入手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#聊一聊前端模板与渲染"><span class="toc-number">5.4.</span> <span class="toc-text">聊一聊前端模板与渲染</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#混合开发"><span class="toc-number">6.</span> <span class="toc-text">混合开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UIWebView和JavaScript之间是怎么交互的"><span class="toc-number">6.1.</span> <span class="toc-text">UIWebView和JavaScript之间是怎么交互的?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#混合开发桥接api是怎么调用的，需要引入类库嘛-调用的对象是什么"><span class="toc-number">6.2.</span> <span class="toc-text">混合开发桥接api是怎么调用的，需要引入类库嘛?调用的对象是什么?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#读一下你对支付，推送（远程，本地）的理解"><span class="toc-number">6.3.</span> <span class="toc-text">读一下你对支付，推送（远程，本地）的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是代理和通知，写一下他们基本的实现方式"><span class="toc-number">6.4.</span> <span class="toc-text">什么是代理和通知，写一下他们基本的实现方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UIViewController的生命周期"><span class="toc-number">6.5.</span> <span class="toc-text">UIViewController的生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rem布局字体太大怎么处理"><span class="toc-number">6.6.</span> <span class="toc-text">rem布局字体太大怎么处理?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何调用原生的接口？"><span class="toc-number">6.7.</span> <span class="toc-text">如何调用原生的接口？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#微信支付怎么做？说说流程"><span class="toc-number">6.8.</span> <span class="toc-text">微信支付怎么做？说说流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#混合开发的注意点"><span class="toc-number">6.9.</span> <span class="toc-text">混合开发的注意点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器与操作系统"><span class="toc-number">7.</span> <span class="toc-text">浏览器与操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#谈谈你对内存管理的理解。"><span class="toc-number">7.1.</span> <span class="toc-text">谈谈你对内存管理的理解。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#聊一聊前端存储。"><span class="toc-number">7.2.</span> <span class="toc-text">聊一聊前端存储。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NodeJS"><span class="toc-number">8.</span> <span class="toc-text">NodeJS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#谈谈你对Socket编程的理解，及实现原理，Socket之间是怎么通讯的"><span class="toc-number">8.1.</span> <span class="toc-text">谈谈你对Socket编程的理解，及实现原理，Socket之间是怎么通讯的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WEB应用从服务器主动推送Data到客户端有哪些方式"><span class="toc-number">8.2.</span> <span class="toc-text">WEB应用从服务器主动推送Data到客户端有哪些方式?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简述Node-js的适用场景？"><span class="toc-number">8.3.</span> <span class="toc-text">简述Node.js的适用场景？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是HTTPS，做什么用的呢？如何开启HTTPS？"><span class="toc-number">8.4.</span> <span class="toc-text">什么是HTTPS，做什么用的呢？如何开启HTTPS？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#你们原来公司如何发送的新消息推送？"><span class="toc-number">8.5.</span> <span class="toc-text">你们原来公司如何发送的新消息推送？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何用NodeJS搭建中间层？"><span class="toc-number">8.6.</span> <span class="toc-text">如何用NodeJS搭建中间层？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件设计"><span class="toc-number">9.</span> <span class="toc-text">组件设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设计一个弹框组件，组件宽度为屏幕高度的50-，宽度为屏幕宽度的80-，水平垂直居中。组件有header，body，footer三部分，header中有标题，可定制，body区域，footer区域有确定和取消按钮，可定制两个按钮的文字内容，组件外的内容有遮罩，点击遮罩和取消按钮时关闭弹框，参照下图。"><span class="toc-number">9.1.</span> <span class="toc-text">设计一个弹框组件，组件宽度为屏幕高度的50%，宽度为屏幕宽度的80%，水平垂直居中。组件有header，body，footer三部分，header中有标题，可定制，body区域，footer区域有确定和取消按钮，可定制两个按钮的文字内容，组件外的内容有遮罩，点击遮罩和取消按钮时关闭弹框，参照下图。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现一个手势滑动轮播图组件。效果参考：https-static-xiaohongchun-com-goods-4514-请在手机里打开"><span class="toc-number">9.2.</span> <span class="toc-text">实现一个手势滑动轮播图组件。效果参考：https://static.xiaohongchun.com/goods/4514(请在手机里打开)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设计基于观察者模式的事件绑定机制"><span class="toc-number">9.3.</span> <span class="toc-text">设计基于观察者模式的事件绑定机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jq自己扩展过什么插件"><span class="toc-number">9.4.</span> <span class="toc-text">jq自己扩展过什么插件?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#侧滑菜单如何实现"><span class="toc-number">9.5.</span> <span class="toc-text">侧滑菜单如何实现?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#权限管理如何实现"><span class="toc-number">9.6.</span> <span class="toc-text">权限管理如何实现?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#让你实现一个检测闭合回路怎么实现？"><span class="toc-number">9.7.</span> <span class="toc-text">让你实现一个检测闭合回路怎么实现？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一个大数组，可能存了100万个数字，要从其中取出来第二大的数的下标，有什么快速的方法？"><span class="toc-number">9.8.</span> <span class="toc-text">一个大数组，可能存了100万个数字，要从其中取出来第二大的数的下标，有什么快速的方法？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单元测试"><span class="toc-number">10.</span> <span class="toc-text">单元测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#单个组件怎么测试性能"><span class="toc-number">10.1.</span> <span class="toc-text">单个组件怎么测试性能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React"><span class="toc-number">11.</span> <span class="toc-text">React</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#redux中间件"><span class="toc-number">11.1.</span> <span class="toc-text">redux中间件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redux有什么缺点"><span class="toc-number">11.2.</span> <span class="toc-text">redux有什么缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react组件的划分业务组件技术组件？"><span class="toc-number">11.3.</span> <span class="toc-text">react组件的划分业务组件技术组件？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react周期函数"><span class="toc-number">11.4.</span> <span class="toc-text">react周期函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react性能优化是哪个周期函数？"><span class="toc-number">11.5.</span> <span class="toc-text">react性能优化是哪个周期函数？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么虚拟dom会提高性能"><span class="toc-number">11.6.</span> <span class="toc-text">为什么虚拟dom会提高性能?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#diff算法"><span class="toc-number">11.7.</span> <span class="toc-text">diff算法?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react性能优化方案"><span class="toc-number">11.8.</span> <span class="toc-text">react性能优化方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简述flux-思想"><span class="toc-number">11.9.</span> <span class="toc-text">简述flux 思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React项目用过什么脚手架？Mern-Yeoman"><span class="toc-number">11.10.</span> <span class="toc-text">React项目用过什么脚手架？Mern? Yeoman?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-js"><span class="toc-number">12.</span> <span class="toc-text">Vue.js</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue与react的对比-如何选型？从性能，生态圈，数据量，数据的传递上，作比较"><span class="toc-number">12.1.</span> <span class="toc-text">vue与react的对比,如何选型？从性能，生态圈，数据量，数据的传递上，作比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-slot是做什么的"><span class="toc-number">12.2.</span> <span class="toc-text">vue slot是做什么的?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue和angular的优缺点以及适用场合"><span class="toc-number">12.3.</span> <span class="toc-text">vue和angular的优缺点以及适用场合?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue路由实现原理"><span class="toc-number">12.4.</span> <span class="toc-text">vue路由实现原理?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#你们vue项目是打包了一js文件-一css文件-还是有多个？"><span class="toc-number">12.5.</span> <span class="toc-text">你们vue项目是打包了一js文件  一css文件 还是有多个？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue遇到的坑，如何解决的？"><span class="toc-number">12.6.</span> <span class="toc-text">vue遇到的坑，如何解决的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue的双向绑定的原理，和angular的对比"><span class="toc-number">12.7.</span> <span class="toc-text">vue的双向绑定的原理，和angular的对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-cli，脚手架"><span class="toc-number">12.8.</span> <span class="toc-text">vue-cli，脚手架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue里面router-link在电脑上有用，在安卓上没反应怎么解决？"><span class="toc-number">12.9.</span> <span class="toc-text">Vue里面router-link在电脑上有用，在安卓上没反应怎么解决？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#框架底层"><span class="toc-number">13.</span> <span class="toc-text">框架底层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery源码中值得借鉴的？"><span class="toc-number">13.1.</span> <span class="toc-text">jQuery源码中值得借鉴的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ready是怎么实现的"><span class="toc-number">13.2.</span> <span class="toc-text">$.ready是怎么实现的?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#懒加载的实现原理"><span class="toc-number">13.3.</span> <span class="toc-text">懒加载的实现原理?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#双向数据绑定和单向数据的区别"><span class="toc-number">13.4.</span> <span class="toc-text">双向数据绑定和单向数据的区别?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#怎么实现一个类似于const功能的方法？"><span class="toc-number">13.5.</span> <span class="toc-text">怎么实现一个类似于const功能的方法？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用原生js模拟一个apply方法"><span class="toc-number">13.6.</span> <span class="toc-text">使用原生js模拟一个apply方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-create-和直接创建对象有什么区别？"><span class="toc-number">13.7.</span> <span class="toc-text">Object.create()和直接创建对象有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用for-in-遍历对象和使用Object-keys来遍历对象有什么区别？"><span class="toc-number">13.8.</span> <span class="toc-text">使用for  in  遍历对象和使用Object.keys来遍历对象有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深拷贝和浅拷贝以及应用场景"><span class="toc-number">13.9.</span> <span class="toc-text">深拷贝和浅拷贝以及应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型链，闭包与继承"><span class="toc-number">13.10.</span> <span class="toc-text">原型链，闭包与继承</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS"><span class="toc-number">14.</span> <span class="toc-text">AngularJS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对bootstrap的掌握、为什么用angular-bootstrap搭建后台管理系统"><span class="toc-number">14.1.</span> <span class="toc-text">对bootstrap的掌握、为什么用angular+bootstrap搭建后台管理系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#angular-中ng-if-和ng-show-hide-有什么区别？"><span class="toc-number">14.2.</span> <span class="toc-text">angular 中ng-if 和ng-show/hide 有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Angular-中ng-click中写的表达式，可以用js原生上的方法吗？为什么？"><span class="toc-number">14.3.</span> <span class="toc-text">Angular 中ng-click中写的表达式，可以用js原生上的方法吗？为什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内置filter都有哪些？"><span class="toc-number">14.4.</span> <span class="toc-text">内置filter都有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何自定义filter"><span class="toc-number">14.5.</span> <span class="toc-text">如何自定义filter?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#factory、service-和-provider-是什么关系？"><span class="toc-number">14.6.</span> <span class="toc-text">factory、service 和 provider 是什么关系？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#angular-的数据绑定采用什么机制？详述原理"><span class="toc-number">14.7.</span> <span class="toc-text">angular 的数据绑定采用什么机制？详述原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两个平级界面块-a-和-b，如果-a-中触发一个事件，有哪些方式能让-b-知道？详述原理"><span class="toc-number">14.8.</span> <span class="toc-text">两个平级界面块 a 和 b，如果 a 中触发一个事件，有哪些方式能让 b 知道？详述原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一个-angular-应用应当如何良好地分层？"><span class="toc-number">14.9.</span> <span class="toc-text">一个 angular 应用应当如何良好地分层？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#angular-应用常用哪些路由库，各自的区别是什么？"><span class="toc-number">14.10.</span> <span class="toc-text">angular 应用常用哪些路由库，各自的区别是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如果通过angular的directive规划一套全组件化体系，可能遇到哪些挑战？"><span class="toc-number">14.11.</span> <span class="toc-text">如果通过angular的directive规划一套全组件化体系，可能遇到哪些挑战？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分属不同团队进行开发的-angular-应用，如果要做整合，可能会遇到哪些问题，如何解决？"><span class="toc-number">14.12.</span> <span class="toc-text">分属不同团队进行开发的 angular 应用，如果要做整合，可能会遇到哪些问题，如何解决？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#angular-的缺点有哪些？"><span class="toc-number">14.13.</span> <span class="toc-text">angular 的缺点有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何看待-angular-1-2-中引入的-controller-as-语法？"><span class="toc-number">14.14.</span> <span class="toc-text">如何看待 angular 1.2 中引入的 controller as 语法？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#详述-angular-的-“依赖注入”。"><span class="toc-number">14.15.</span> <span class="toc-text">详述 angular 的 “依赖注入”。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#当你简单的动态给页面插入html时，此时html带有angular的语法不会执行的，为什么？"><span class="toc-number">14.16.</span> <span class="toc-text">当你简单的动态给页面插入html时，此时html带有angular的语法不会执行的，为什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用ng-repeat出错：Error-ngRepeat-dupes-，怎么回事？"><span class="toc-number">14.17.</span> <span class="toc-text">使用ng-repeat出错：Error: [ngRepeat:dupes]，怎么回事？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ng-repeat迭代数组的时候，如果数组中有相同值，会有什么问题，如何解决？"><span class="toc-number">14.18.</span> <span class="toc-text">ng-repeat迭代数组的时候，如果数组中有相同值，会有什么问题，如何解决？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用第三方插件或者原生的js修改angular中的model或者view的值时，相应的model或者view的值不会变化，也就是angular的双向数据绑定失效，怎么回事？"><span class="toc-number">14.19.</span> <span class="toc-text">使用第三方插件或者原生的js修改angular中的model或者view的值时，相应的model或者view的值不会变化，也就是angular的双向数据绑定失效，怎么回事？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#angular中注入方式有推断式注入、-inject注入、内联式注入，当然这三种方式在angular中是等效的，但推断式注入对于压缩的-JavaScript-代码来说是不起作用的，为什么？"><span class="toc-number">14.20.</span> <span class="toc-text">angular中注入方式有推断式注入、$inject注入、内联式注入，当然这三种方式在angular中是等效的，但推断式注入对于压缩的 JavaScript 代码来说是不起作用的，为什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何看待angular2？"><span class="toc-number">14.21.</span> <span class="toc-text">如何看待angular2？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#公司情况"><span class="toc-number">15.</span> <span class="toc-text">公司情况</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#公司组织架构"><span class="toc-number">15.1.</span> <span class="toc-text">公司组织架构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#综合问题"><span class="toc-number">16.</span> <span class="toc-text">综合问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#请列举你知道的前端框架？常用的前端开发工具？开发过哪些应用和组件？"><span class="toc-number">16.1.</span> <span class="toc-text">请列举你知道的前端框架？常用的前端开发工具？开发过哪些应用和组件？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的库有哪些？常用的前端开发工具是什么？开发过什么应运或组件？"><span class="toc-number">16.2.</span> <span class="toc-text">常用的库有哪些？常用的前端开发工具是什么？开发过什么应运或组件？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#项目测试没问题。但是放到线上就有问题了，你是怎么分析解决的？"><span class="toc-number">16.3.</span> <span class="toc-text">项目测试没问题。但是放到线上就有问题了，你是怎么分析解决的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6里面你用过什么"><span class="toc-number">16.4.</span> <span class="toc-text">ES6里面你用过什么?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何管理团队"><span class="toc-number">16.5.</span> <span class="toc-text">如何管理团队?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#你做过的你负责的最难的数据交互模块是？"><span class="toc-number">16.6.</span> <span class="toc-text">你做过的你负责的最难的数据交互模块是？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#你平时写过什么业务逻辑？"><span class="toc-number">16.7.</span> <span class="toc-text">你平时写过什么业务逻辑？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#你负责的具体是什么模块？"><span class="toc-number">16.8.</span> <span class="toc-text">你负责的具体是什么模块？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#你掌握的技术栈有哪些？"><span class="toc-number">16.9.</span> <span class="toc-text">你掌握的技术栈有哪些？</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"小记　| qingTeng's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section class="youyan" id="comments">
+    <script>
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = 'http://v2.uyan.cc/code/uyan.js?uid=2126445';
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+    <div id="uyan_frame"></div>
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/10/02/vue介绍/" title="上一篇: vue介绍">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/03/15/angularJs开发流程/" title="下一篇: angularJs开发流程">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/angularjs-style-guide-zh/">angularjs-style-guide-zh</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/AngularJs环境的准备/">AngularJs环境的准备</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/Thank/">Thanks</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/学无止境，勇往直前/">学无止境，勇往直前</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/杭州有感/">杭州有感</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/小别离/">小别离</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/06/webpack/">webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/小诗四首/">小诗四首</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/02/小诗三首/">小诗三首</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/28/sublime快捷键/">sublime快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/let和const/">let和const</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/ES6重点基本语法学习笔记/">ES6重点基本语法学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/03/vue实例/">vue实例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/02/vue介绍/">vue介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/Front-end-Interview-questions/">小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/angularJs开发流程/">angularJs开发流程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/AngularJs/">angularJs基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/三月技术学习列表/">三月技术学习列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/15/【MAC】MARKDOWN编辑器推荐-IA-WRITER/">【MAC】写作工具推荐 iA Writer</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/11/七天七并发模型读书笔记/">七天七并发模型读书笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/05/Chrome插件开发简单示例/">Chrome插件开发简单示例</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Python编码规范-Google/">Python编码规范(Google)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/27/Python语言学习/">Python语言学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/24/Redis学习手册/">Redis学习手册</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/13/MacApp清单/">MacApp清单</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/12/GOOGLE搜索从入门到精通V4-0/">GOOGLE搜索从入门到精通V4.0</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/03/IntelliJ IDEA 快捷键大全 for Mac/">IntelliJ IDEA 快捷键大全 for Mac</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/20/linux系统管理与配置/">Linux基本应用-系统安装与启用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/19/linux基本应用-基本磁盘管理/">linux基本应用-基本磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/18/linux下shell编程-shell编程/">Linux基本应用-系统安装与启用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/17/linux下shell编程-vi编辑器/">linux下shell编程-vi编辑器</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/16/Linux基本应用-文件权限管理/">Linux基本应用-文件权限管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/15/linux基本应用-用户与组的管理/">linux基本应用-用户与组的管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/14/Linux基本应用-基本命令的使用/">Linux基本应用-基本命令的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/13/Linux基本应用-系统安装与启用/">Linux基本应用-系统安装与启用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/12/Linux常用命令集锦/">Linux常用命令集锦</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/04/02/小诗二首/">小诗二首</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/02/读书笔记》谷哥和亚马逊如何做产品/">读书笔记>>谷歌和亚马逊如何做产品</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/02/WeeklyPlanNote/">WeeklyPlanNote</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/02/linux环境变量及执行顺序介绍/">linux环境变量及执行顺序介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/02/小诗一首/">小诗一首</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/14/兼容总结/">兼容总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/13/Cookie/">cookie</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/12/AIAX/">AJAX</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/11/事件/">事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/09/this/">this</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/08/DOM/">DOM</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/07/Date和BOM/">Date&BOM</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/06/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/05/String字符串/">String字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/04/数组/">数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/03/函数/">函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/02/Javasciprt-循环/">Javascript-循环</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2014-2017 qingTeng
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by qingTeng <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

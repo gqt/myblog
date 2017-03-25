@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="qingTeng" />
+
+
+
+<meta name="description" content="英文版理解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux常用命令集锦">
+<meta property="og:url" content="https://xf27.github.io/qingTeng/2015/05/12/Linux常用命令集锦/index.html">
+<meta property="og:site_name" content="qingTeng's Blog">
+<meta property="og:description" content="英文版理解">
+<meta property="og:image" content="https://xf27.github.io/qingTeng/img/linux/visuduo.png">
+<meta property="og:image" content="https://xf27.github.io/qingTeng/img/linux/xf.png">
+<meta property="og:image" content="https://xf27.github.io/qingTeng/img/linux/history.png">
+<meta property="og:image" content="https://xf27.github.io/qingTeng/img/linux/ls.png">
+<meta property="og:image" content="https://xf27.github.io/qingTeng/img/linux/cp.png">
+<meta property="og:updated_time" content="2017-03-03T03:37:55.042Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux常用命令集锦">
+<meta name="twitter:description" content="英文版理解">
+<meta name="twitter:image" content="https://xf27.github.io/qingTeng/img/linux/visuduo.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="qingTeng&#39;s Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Linux常用命令集锦 | qingTeng&#39;s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">qingTeng</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">前端开发中的一枚妹子！</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/随笔">随笔</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/qingTenglove95@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/xf27/" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/A2/">A2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJs/">AngularJs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Front-end-Interview-questions/">Front-end-Interview-questions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dev/">dev</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/env/">env</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plan/">plan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/产品设计/">产品设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写作/">写作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原创/">原创</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快捷键/">快捷键</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推荐/">推荐</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/知识储备/">知识储备</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">qingTeng</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">qingTeng</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">前端开发中的一枚妹子！</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/随笔">随笔</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/qingTenglove95@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/xf27/" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-Linux常用命令集锦" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/12/Linux常用命令集锦/" class="article-date">
+      <time datetime="2015-05-12T13:13:08.000Z" itemprop="datePublished">2015-05-12</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux常用命令集锦
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/env/">env</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="英文版理解"><a href="#英文版理解" class="headerlink" title="英文版理解"></a>英文版理解</h1><a id="more"></a>
+<h2 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h2><h3 id="switching-between-virtual-consoles"><a href="#switching-between-virtual-consoles" class="headerlink" title="switching between virtual consoles"></a>switching between virtual consoles</h3><p>(1)a typocal linux system will run one graphical console and five virtual console<br>(2)startx<br>(3)ctrl-alt-F[2-6] 图形界面<br>(4)ctrl-alt-F1 字符界面<br>(5)ctrl-shift-t 多个窗口<br>(6)shift-pgup/pgon 前后翻<br>(7)ctrl-shift-c/ctrl-shift-v复制与粘贴</p>
+<h3 id="changing-your-password"><a href="#changing-your-password" class="headerlink" title="changing your password"></a>changing your password</h3><p>(1)passwords control access to the system</p>
+<h3 id="the-root-user"><a href="#the-root-user" class="headerlink" title="the root user"></a>the root user</h3><h3 id="changing-identities"><a href="#changing-identities" class="headerlink" title="changing identities"></a>changing identities</h3><p>(1)su -<br>(2)sudo command runs command as root<br>requires prior configuration by a system-administrator<br>visudo<br><img src="/img/linux/visuduo.png" alt="alt text" title="Title"><br><img src="/img/linux/xf.png" alt="alt text" title="Title"><br>(3)id </p>
+<h3 id="command-history"><a href="#command-history" class="headerlink" title="command history"></a>command history</h3><p>(1)bash stores a history of commands executed<br>(2)history list all commands<br><img src="/img/linux/history.png" alt="alt text" title="Title"><br>(3)use the up and down keys to scroll through previous commands</p>
+<h2 id="linux-file-hierarchy-concepts"><a href="#linux-file-hierarchy-concepts" class="headerlink" title="linux file hierarchy concepts"></a>linux file hierarchy concepts</h2><h3 id="some-important-directories"><a href="#some-important-directories" class="headerlink" title="some important directories"></a>some important directories</h3><p>home directories:/root,/home/username<br>user executable:/bin,/user/bin,/user/local/bin<br>system executables:/sbin,/user/sbin,/usr/local/sbin<br>other mountpoints:/media,/mnt<br>configuration:/etc<br>temporary files:/tmp,/var/tmp<br>kernels and bootloader:/boot<br>server data:/var<br>system information:/proc,/sys<br>shared libraries:/lib,/usr/lib,/usr/local/lib</p>
+<h3 id="cli-syntax"><a href="#cli-syntax" class="headerlink" title="cli syntax"></a>cli syntax</h3><ul>
+<li>commands have the following syntax:<br>-command options arguments</li>
+<li>each item is separated by a space</li>
+<li>options modify a command’s behavior<br>-single-letter options usually preceded by -</li>
+<li>can be passed as -a -b -c or -abc<br>-full-word options usually preceded by - -<br>example:- -help</li>
+<li>arguments are file names or other data needed by the command</li>
+<li>multiple commands can be separated by;</li>
+</ul>
+<h3 id="getting-help"><a href="#getting-help" class="headerlink" title="getting help"></a>getting help</h3><ul>
+<li>do not try to memorize everything!</li>
+<li>many levels of help<br>-whatis<br><strong>-command –help</strong><br><strong>-man</strong><br>-/usr/share/doc/<br>-red hat documentation<br>-google it</li>
+</ul>
+<h3 id="reading-usage-summaries"><a href="#reading-usage-summaries" class="headerlink" title="reading usage summaries"></a>reading usage summaries</h3><ul>
+<li>printed by –help,man and others</li>
+<li>used to describe the syntax of a command<br>-arguments in [] are optional<br>-arguments in CAPS or &lt;&gt;are variables<br>-text followed by … represents a list<br>-x|y|z means “x or y or z”<br>-abc means “any mix of -a,-b or -c”</li>
+</ul>
+<h3 id="determining-your-current-directory"><a href="#determining-your-current-directory" class="headerlink" title="determining your current directory"></a>determining your current directory</h3><ul>
+<li>each shell and system process has a current working directory(cwd)</li>
+<li><strong>pwd</strong><br>-displays the absolute path to the shell’s cwd</li>
+</ul>
+<h3 id="absolute-and-relative-pathnames"><a href="#absolute-and-relative-pathnames" class="headerlink" title="absolute and relative pathnames"></a>absolute and relative pathnames</h3><ul>
+<li>used when referring to files on the command-line</li>
+<li>absolute pathnames<br>-begin with a forward slash<br>-complete “road map” to file location<br>-can be used anytime you wish to a specify a file name<br>relative pathnames<br>-do not begin with a slash<br>-specify location relative to your current working directory<br>-can be used as a shorter way to specify a file name</li>
+</ul>
+<h3 id="changing-directories"><a href="#changing-directories" class="headerlink" title="changing directories"></a>changing directories</h3><ul>
+<li>cd changes directories<br>-to an absolute or relative path:<br>cd /home/joshua/work<br>cd project/docs<br>-to a directory one level up:<br><strong>cd ..</strong><br>-to your home directory:<br><strong>cd</strong><br>-to your previous working directory:<br><strong>cd -</strong></li>
+</ul>
+<h3 id="listing-directory-contents"><a href="#listing-directory-contents" class="headerlink" title="listing directory contents"></a>listing directory contents</h3><p>lists the contents of the current directory or a specified directory<br>usage:<br>-ls [options] [files_or_dirs]<br>example:<br>-ls -a(include hidden files)<br>-ls -l (display extra information)<br>-ls -R(recurse through directories)<br><strong>-ls -ld(directory and symlink information) 查看自身信息</strong><br><img src="/img/linux/ls.png" alt="alt text" title="Title"></p>
+<h3 id="copying-files-and-directories"><a href="#copying-files-and-directories" class="headerlink" title="copying files and directories"></a>copying files and directories</h3><ul>
+<li><strong>cp</strong> -copy files and directories</li>
+<li>usage:<br> -cp [options] file destination</li>
+<li>more than one file may be copied at a time if the destination is a directory:<br>-cp [options] file1 file2 destdir<br>copying files and directories:the destination</li>
+<li>if the destination is a directory,the copy is places there</li>
+<li>if the destination is a file,the copy overwrites the destination</li>
+<li>if the destination does not exist,the copy is renamed<h3 id="moving-and-renaming-files-and-directories"><a href="#moving-and-renaming-files-and-directories" class="headerlink" title="moving and renaming files and directories"></a>moving and renaming files and directories</h3></li>
+<li>mv -move and/or rename files and directories<br>usage:<br>-mv [options] file destination</li>
+<li>more than one file may be moved at a time if the destination is a directory:<br>-mv [options] file1 file2 destdir</li>
+<li>destination works like cp<h3 id="creating-and-removing-files"><a href="#creating-and-removing-files" class="headerlink" title="creating and removing files"></a>creating and removing files</h3></li>
+<li>touch -create empty files or update file timestamps</li>
+<li>rm -remove files<br>usage:<br>-rm [options]<file>…<br>example:<br>-rm -i file(interactive)<br><strong>-rm</strong> -r directory(recursive)<br>-rm -f file(force)<h3 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h3></file></li>
+</ul>
+<h2 id="File-system-in-Depth"><a href="#File-system-in-Depth" class="headerlink" title="File system in Depth"></a>File system in Depth</h2><h3 id="inodes"><a href="#inodes" class="headerlink" title="inodes"></a>inodes</h3><ul>
+<li>an inode table contains a list of all files in an ext2 or ext3 filesystem</li>
+<li>an inode(index node)is an entry in the table,containing information about a file(the metadata),including:<br>-file type,permissions,UID,GID<br>-the link count(count of path names pointing to this file)<br>-the file’s size and various time stamps<br>-pointers to the file’s data blocks on disk<br>-other data about the file<h3 id="directories"><a href="#directories" class="headerlink" title="directories"></a>directories</h3></li>
+<li>the computer’s reference for a file is the inode number</li>
+<li>the human way to reference a file is by file name</li>
+<li>a directory is a mapping between the human name for the file and the computer’s inode number<h3 id="cp-and-inodes"><a href="#cp-and-inodes" class="headerlink" title="cp and inodes"></a>cp and inodes</h3>the cp command:<br>-allocates a free inode number,placing a new entry in the inode table<br>-creates a dentry in the directory,associating a name with the inode number<br>-copies data into the new file<br><img src="/img/linux/cp.png" alt="alt text" title="Title">* </li>
+</ul>
+<h3 id="mv-and-inodes"><a href="#mv-and-inodes" class="headerlink" title="mv and inodes"></a>mv and inodes</h3><ul>
+<li>if the destination of the mv command is on the same file system as the source,the mv command:<br>-creates a new directory entry with the new file name<br>-deletes the old directory entry with the old file name</li>
+<li>has no impact on the inode table(except for a time stamp)or the location of data on the disk:no data is moved!</li>
+<li>if the destination is a different filesystem,mv acts as a copy and remove <h3 id="rm-and-inodes"><a href="#rm-and-inodes" class="headerlink" title="rm and inodes"></a>rm and inodes</h3></li>
+<li>the rm command:<br>-decrements the link count,thus freeing the inode number to be reused<br>-places data blocks on the free list<br>-removes the directory entry</li>
+<li>data is not actually removed,but will be overwritten when the data blocks are used by another file <h3 id="hard-links"><a href="#hard-links" class="headerlink" title="hard links"></a>hard links</h3></li>
+<li>a hard link adds an additional dentry to reference a single file<br>-one physical file on the filesystem<br>-each directory references the same inode number<br>-increments the link count<br> the rm command decrements the link count<br> file exists as long as at least one link remains<br> when the link count is zero,the file is removed<br>-cannot span drives or partitions</li>
+<li>syntax:<br>-in filename[linkname]<h3 id="symbolic-or-soft-links"><a href="#symbolic-or-soft-links" class="headerlink" title="symbolic(or soft)links"></a>symbolic(or soft)links</h3></li>
+<li>a symbolic link points to another file<br>-ls -l displays the link name and the referenced file<br>-file type:l for symbolic link<br>-the content of a symbolic link is the name of the file that it references<br>syntax:</li>
+<li>-ln -s filename linkname<h3 id="the-seven-fundamental-file-types"><a href="#the-seven-fundamental-file-types" class="headerlink" title="the seven fundamental file types"></a>the seven fundamental file types</h3>ls -l symbol       file type<ul>
+<li>regular file<br>d              directory<br>l                symbolic link<br>b                block special file<br>c                character special file<br>p                named pipe<br>s                  socket<h3 id="checking-free-space"><a href="#checking-free-space" class="headerlink" title="checking free space"></a>checking free space</h3></li>
+</ul>
+</li>
+<li>du produces text usage report (in kilobytes) by directory<br>-list size of every file in all sub-directories by default </li>
+</ul>
+<ul>
+<li>-h and -H display sizes in easier-to-read units</li>
+<li>-s summarizes sub-directories instead</li>
+</ul>
+<ul>
+<li>df produces text usage report(in kilobytes)by filesystem</li>
+</ul>
+<ul>
+<li>also takes -h and -H options</li>
+<li>-T includes filesystem tupes<h3 id="determining-file-content"><a href="#determining-file-content" class="headerlink" title="determining file content"></a>determining file content</h3>files can contain many tupes of data<br>check file type with file before opening to determine appropriate command or application to use<br>file [options] <filename>…<br>file -s /dev/sda1 文件系统<br>10.CLI Tips<br>Tab:To complete command lines<br>-for the command name,it will complete a command name<br>-for an argument,it will complete a file name<br>ctrl+u:clear to end of line<br>ctrl+k:clear to start of line<br>ctrl+l:clear whole screen<br>ctrl+c:cancel current command line</filename></li>
+</ul>
+<h2 id="editor"><a href="#editor" class="headerlink" title="editor"></a>editor</h2><p>geditor</p>
+<h3 id="introducing-vim"><a href="#introducing-vim" class="headerlink" title="introducing vim"></a>introducing vim</h3><ul>
+<li>new version of vi,the standard unix text editor<br>-executing vi runs vim by default</li>
+<li>advantages:<br>-speed:do more with fewer keystrokes<br>-symplicity:no dependence on mouse/GUI<br>-availability:included with most unix-like oses</li>
+<li>disadvantages<br>-difficulity:steeper learning curve than simpler editors</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2015/05/12/Linux常用命令集锦/">Linux常用命令集锦</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">qingTeng</a></p>
+        <p><span>发布时间:</span>2015-05-12, 21:13:08</p>
+        <p><span>最后更新:</span>2017-03-03, 11:37:55</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2015/05/12/Linux常用命令集锦/" title="Linux常用命令集锦">https://xf27.github.io/qingTeng/2015/05/12/Linux常用命令集锦/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://xf27.github.io/qingTeng/2015/05/12/Linux常用命令集锦/　　作者: qingTeng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2015/05/13/Linux基本应用-系统安装与启用/">
+                    Linux基本应用-系统安装与启用
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2015/04/02/小诗二首/">
+                    小诗二首
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#英文版理解"><span class="toc-number">1.</span> <span class="toc-text">英文版理解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Basic"><span class="toc-number">1.1.</span> <span class="toc-text">Basic</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#switching-between-virtual-consoles"><span class="toc-number">1.1.1.</span> <span class="toc-text">switching between virtual consoles</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#changing-your-password"><span class="toc-number">1.1.2.</span> <span class="toc-text">changing your password</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#the-root-user"><span class="toc-number">1.1.3.</span> <span class="toc-text">the root user</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#changing-identities"><span class="toc-number">1.1.4.</span> <span class="toc-text">changing identities</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#command-history"><span class="toc-number">1.1.5.</span> <span class="toc-text">command history</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#linux-file-hierarchy-concepts"><span class="toc-number">1.2.</span> <span class="toc-text">linux file hierarchy concepts</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#some-important-directories"><span class="toc-number">1.2.1.</span> <span class="toc-text">some important directories</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cli-syntax"><span class="toc-number">1.2.2.</span> <span class="toc-text">cli syntax</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#getting-help"><span class="toc-number">1.2.3.</span> <span class="toc-text">getting help</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reading-usage-summaries"><span class="toc-number">1.2.4.</span> <span class="toc-text">reading usage summaries</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#determining-your-current-directory"><span class="toc-number">1.2.5.</span> <span class="toc-text">determining your current directory</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#absolute-and-relative-pathnames"><span class="toc-number">1.2.6.</span> <span class="toc-text">absolute and relative pathnames</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#changing-directories"><span class="toc-number">1.2.7.</span> <span class="toc-text">changing directories</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#listing-directory-contents"><span class="toc-number">1.2.8.</span> <span class="toc-text">listing directory contents</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#copying-files-and-directories"><span class="toc-number">1.2.9.</span> <span class="toc-text">copying files and directories</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#moving-and-renaming-files-and-directories"><span class="toc-number">1.2.10.</span> <span class="toc-text">moving and renaming files and directories</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#creating-and-removing-files"><span class="toc-number">1.2.11.</span> <span class="toc-text">creating and removing files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mkdir"><span class="toc-number">1.2.12.</span> <span class="toc-text">mkdir</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#File-system-in-Depth"><span class="toc-number">1.3.</span> <span class="toc-text">File system in Depth</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#inodes"><span class="toc-number">1.3.1.</span> <span class="toc-text">inodes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#directories"><span class="toc-number">1.3.2.</span> <span class="toc-text">directories</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cp-and-inodes"><span class="toc-number">1.3.3.</span> <span class="toc-text">cp and inodes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mv-and-inodes"><span class="toc-number">1.3.4.</span> <span class="toc-text">mv and inodes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rm-and-inodes"><span class="toc-number">1.3.5.</span> <span class="toc-text">rm and inodes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hard-links"><span class="toc-number">1.3.6.</span> <span class="toc-text">hard links</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#symbolic-or-soft-links"><span class="toc-number">1.3.7.</span> <span class="toc-text">symbolic(or soft)links</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#the-seven-fundamental-file-types"><span class="toc-number">1.3.8.</span> <span class="toc-text">the seven fundamental file types</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#checking-free-space"><span class="toc-number">1.3.9.</span> <span class="toc-text">checking free space</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#determining-file-content"><span class="toc-number">1.3.10.</span> <span class="toc-text">determining file content</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#editor"><span class="toc-number">1.4.</span> <span class="toc-text">editor</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#introducing-vim"><span class="toc-number">1.4.1.</span> <span class="toc-text">introducing vim</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Linux常用命令集锦　| qingTeng's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section class="youyan" id="comments">
+    <script>
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = 'http://v2.uyan.cc/code/uyan.js?uid=2126445';
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+    <div id="uyan_frame"></div>
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2015/05/13/Linux基本应用-系统安装与启用/" title="上一篇: Linux基本应用-系统安装与启用">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2015/04/02/小诗二首/" title="下一篇: 小诗二首">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/angularjs-style-guide-zh/">angularjs-style-guide-zh</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/AngularJs环境的准备/">AngularJs环境的准备</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/Thank/">Thanks</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/学无止境，勇往直前/">学无止境，勇往直前</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/杭州有感/">杭州有感</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/小别离/">小别离</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/06/webpack/">webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/小诗四首/">小诗四首</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/02/小诗三首/">小诗三首</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/28/sublime快捷键/">sublime快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/let和const/">let和const</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/ES6重点基本语法学习笔记/">ES6重点基本语法学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/03/vue实例/">vue实例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/02/vue介绍/">vue介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/Front-end-Interview-questions/">小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/angularJs开发流程/">angularJs开发流程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/AngularJs/">angularJs基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/三月技术学习列表/">三月技术学习列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/15/【MAC】MARKDOWN编辑器推荐-IA-WRITER/">【MAC】写作工具推荐 iA Writer</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/11/七天七并发模型读书笔记/">七天七并发模型读书笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/05/Chrome插件开发简单示例/">Chrome插件开发简单示例</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Python编码规范-Google/">Python编码规范(Google)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/27/Python语言学习/">Python语言学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/24/Redis学习手册/">Redis学习手册</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/13/MacApp清单/">MacApp清单</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/12/GOOGLE搜索从入门到精通V4-0/">GOOGLE搜索从入门到精通V4.0</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/03/IntelliJ IDEA 快捷键大全 for Mac/">IntelliJ IDEA 快捷键大全 for Mac</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/20/linux系统管理与配置/">Linux基本应用-系统安装与启用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/19/linux基本应用-基本磁盘管理/">linux基本应用-基本磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/18/linux下shell编程-shell编程/">Linux基本应用-系统安装与启用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/17/linux下shell编程-vi编辑器/">linux下shell编程-vi编辑器</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/16/Linux基本应用-文件权限管理/">Linux基本应用-文件权限管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/15/linux基本应用-用户与组的管理/">linux基本应用-用户与组的管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/14/Linux基本应用-基本命令的使用/">Linux基本应用-基本命令的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/13/Linux基本应用-系统安装与启用/">Linux基本应用-系统安装与启用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/12/Linux常用命令集锦/">Linux常用命令集锦</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/04/02/小诗二首/">小诗二首</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/02/读书笔记》谷哥和亚马逊如何做产品/">读书笔记>>谷歌和亚马逊如何做产品</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/02/WeeklyPlanNote/">WeeklyPlanNote</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/02/linux环境变量及执行顺序介绍/">linux环境变量及执行顺序介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/02/小诗一首/">小诗一首</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/14/兼容总结/">兼容总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/13/Cookie/">cookie</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/12/AIAX/">AJAX</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/11/事件/">事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/09/this/">this</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/08/DOM/">DOM</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/07/Date和BOM/">Date&BOM</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/06/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/05/String字符串/">String字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/04/数组/">数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/03/函数/">函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/02/Javasciprt-循环/">Javascript-循环</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2014-2017 qingTeng
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by qingTeng <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

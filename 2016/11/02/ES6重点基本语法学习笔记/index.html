@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="qingTeng" />
+
+
+
+<meta name="description" content="参考：http://es6.ruanyifeng.com/#docs/function
+块及作用域：{}在ES6语法中，{}中的内容作为一个代码块；通过let声明的变量，只有在其定义的代码块中生效。
+新的变量赋值模式：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6重点基本语法学习笔记">
+<meta property="og:url" content="https://xf27.github.io/qingTeng/2016/11/02/ES6重点基本语法学习笔记/index.html">
+<meta property="og:site_name" content="qingTeng's Blog">
+<meta property="og:description" content="参考：http://es6.ruanyifeng.com/#docs/function
+块及作用域：{}在ES6语法中，{}中的内容作为一个代码块；通过let声明的变量，只有在其定义的代码块中生效。
+新的变量赋值模式：">
+<meta property="og:updated_time" content="2017-03-14T13:50:50.831Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6重点基本语法学习笔记">
+<meta name="twitter:description" content="参考：http://es6.ruanyifeng.com/#docs/function
+块及作用域：{}在ES6语法中，{}中的内容作为一个代码块；通过let声明的变量，只有在其定义的代码块中生效。
+新的变量赋值模式：">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="qingTeng&#39;s Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>ES6重点基本语法学习笔记 | qingTeng&#39;s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">qingTeng</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">前端开发中的一枚妹子！</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/随笔">随笔</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/qingTenglove95@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/xf27/" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/A2/">A2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJs/">AngularJs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Front-end-Interview-questions/">Front-end-Interview-questions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/app/">app</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dev/">dev</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/env/">env</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plan/">plan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/产品设计/">产品设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/写作/">写作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原创/">原创</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快捷键/">快捷键</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推荐/">推荐</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/知识储备/">知识储备</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">qingTeng</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">qingTeng</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">前端开发中的一枚妹子！</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/随笔">随笔</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/qingTenglove95@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/xf27/" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-ES6重点基本语法学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/02/ES6重点基本语法学习笔记/" class="article-date">
+      <time datetime="2016-11-02T09:56:44.000Z" itemprop="datePublished">2016-11-02</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ES6重点基本语法学习笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/">ES6</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>参考：<a href="http://es6.ruanyifeng.com/#docs/function" target="_blank" rel="external">http://es6.ruanyifeng.com/#docs/function</a></p>
+<h3 id="块及作用域："><a href="#块及作用域：" class="headerlink" title="块及作用域：{}"></a>块及作用域：{}</h3><p>在ES6语法中，{}中的内容作为一个代码块；<br>通过let声明的变量，只有在其定义的代码块中生效。</p>
+<h3 id="新的变量赋值模式："><a href="#新的变量赋值模式：" class="headerlink" title="新的变量赋值模式："></a>新的变量赋值模式：</h3><a id="more"></a>
+<pre><code>var [a, b, c] = [1, 2, 3];
+var { foo: baz } = { foo: &apos;aaa&apos;, bar: &apos;bbb&apos; };
+baz // &quot;aaa&quot;
+</code></pre><p>可以通过数组和对象的形式给群组变量赋值</p>
+<h3 id="模板字符串：通过定义的字符串当中，可以通过-直接加入变量。"><a href="#模板字符串：通过定义的字符串当中，可以通过-直接加入变量。" class="headerlink" title="模板字符串：通过定义的字符串当中，可以通过${}直接加入变量。"></a>模板字符串<code>：通过</code>定义的字符串当中，可以通过${}直接加入变量。</h3><pre><code>var { foo: baz } = { foo: &apos;aaa&apos;, bar: &apos;bbb&apos; };
+var text=`输出字符串:${baz}`;
+console.log(text);
+</code></pre><h3 id="函数中形参的默认值："><a href="#函数中形参的默认值：" class="headerlink" title="函数中形参的默认值："></a>函数中形参的默认值：</h3><pre><code>function f(x, y, z=0) {
+  console.log(z);
+}
+f(0,1,2);
+</code></pre><h3 id="箭头函数：-gt"><a href="#箭头函数：-gt" class="headerlink" title="箭头函数：=&gt;"></a>箭头函数：=&gt;</h3><p>//f为函数名，v是参数，=&gt;后面相当于return的内容</p>
+<pre><code>var f = v =&gt; v;
+//等同于
+var f = function(v) {
+  return v;
+};
+</code></pre><p>参数可以通过()传如多个参数，如：</p>
+<pre><code>var f=(a,b,c)=&gt;a+b+c;
+</code></pre><h3 id="功能强大的扩展运算符：”…”"><a href="#功能强大的扩展运算符：”…”" class="headerlink" title="功能强大的扩展运算符：”…”"></a>功能强大的扩展运算符：”…”</h3><pre><code>var nodeList = document.querySelectorAll(&apos;div&apos;);
+var array = [...nodeList];
+</code></pre><p>上面代码通过扩展运算符将伪数组转数组<br>// ES5的写法</p>
+<pre><code>Math.max.apply(null, [14, 3, 77])
+</code></pre><p>// ES6的写法</p>
+<pre><code>Math.max(...[14, 3, 77])
+</code></pre><p>上面代码通过扩展运算符取数组最大值<br>扩展运算符功能不仅于此，详情请参阅ES6官方文档</p>
+<h3 id="对象扩展："><a href="#对象扩展：" class="headerlink" title="对象扩展："></a>对象扩展：</h3><pre><code>var o = {
+  method() {
+    return &quot;Hello!&quot;;
+  }
+};
+</code></pre><p>对象属性简写<br>Object.is(null, null);<br>判断严格相等函数,上面函数结果返回true<br>Object.assign(obj,obj02)<br>对象合并，但是使用浅拷贝机制，类似jquery.extend()函数用法</p>
+<h3 id="Set类型：类似数组，但不是数组，ES6中的新类型，不会接收重复的值"><a href="#Set类型：类似数组，但不是数组，ES6中的新类型，不会接收重复的值" class="headerlink" title="Set类型：类似数组，但不是数组，ES6中的新类型，不会接收重复的值"></a>Set类型：类似数组，但不是数组，ES6中的新类型，不会接收重复的值</h3><p>var arr=[1,2,3,4,4,5,6,78,8,4,4,3];<br>// 去除数组的重复成员<br>console.log([…new Set(arr)]);<br>详细属性及方法请参阅文档</p>
+<h3 id="Map类型：真正的键值对类型，可以以任何类型作为建，也可以赋值任何类型为键的值"><a href="#Map类型：真正的键值对类型，可以以任何类型作为建，也可以赋值任何类型为键的值" class="headerlink" title="Map类型：真正的键值对类型，可以以任何类型作为建，也可以赋值任何类型为键的值"></a>Map类型：真正的键值对类型，可以以任何类型作为建，也可以赋值任何类型为键的值</h3><pre><code>var m = new Map();
+var o = {p: &apos;Hello World&apos;};
+m.set(o, &apos;content&apos;)
+m.get(o) // &quot;content&quot;
+</code></pre><h3 id="Promise异步操作对象："><a href="#Promise异步操作对象：" class="headerlink" title="Promise异步操作对象："></a>Promise异步操作对象：</h3><h3 id="以下代码为异步加载图片函数"><a href="#以下代码为异步加载图片函数" class="headerlink" title="以下代码为异步加载图片函数"></a>以下代码为异步加载图片函数</h3><pre><code>function loadImageAsync(url) {
+  return new Promise(function(resolve, reject) {
+    var image = new Image();
+    image.onload = function() {
+      resolve(image);
+    };
+    image.onerror = function() {
+      reject(new Error(&apos;Could not load image at &apos; + url));
+    };
+    image.src = url;
+  });
+}
+loadImageAsync(&quot;img/4-15012G52133.jpg&quot;).then(function(img){
+console.log(img);
+},function(err){
+});
+</code></pre><h3 id="Class：JS中的类"><a href="#Class：JS中的类" class="headerlink" title="Class：JS中的类"></a>Class：JS中的类</h3><pre><code>//定义类
+class Point {
+/*构造器*/
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+/*prototype中的函数*/
+  toString() {
+    return &apos;(&apos; + this.x + &apos;, &apos; + this.y + &apos;)&apos;;
+  }
+}
+</code></pre><h3 id="类的继承extends：其中super指向父类构造器"><a href="#类的继承extends：其中super指向父类构造器" class="headerlink" title="类的继承extends：其中super指向父类构造器"></a>类的继承extends：其中super指向父类构造器</h3><pre><code>class ColorPoint extends Point {
+  constructor(x, y, color) {
+    super(x, y); // 调用父类的constructor(x, y)
+    this.color = color;
+  }
+}
+</code></pre><h3 id="模块处理：export和import"><a href="#模块处理：export和import" class="headerlink" title="模块处理：export和import"></a>模块处理：export和import</h3><h3 id="模块输出页面-exText-js"><a href="#模块输出页面-exText-js" class="headerlink" title="模块输出页面,exText.js"></a>模块输出页面,exText.js</h3><pre><code>export var a=&quot;vvvvv&quot;;
+</code></pre><p>模块引入：{a}接收的模块，’./exText’模块所在文件位置</p>
+<pre><code>import {a} from &apos;./exText&apos;;
+console.log(a);
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/11/02/ES6重点基本语法学习笔记/">ES6重点基本语法学习笔记</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">qingTeng</a></p>
+        <p><span>发布时间:</span>2016-11-02, 17:56:44</p>
+        <p><span>最后更新:</span>2017-03-14, 21:50:50</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/02/ES6重点基本语法学习笔记/" title="ES6重点基本语法学习笔记">https://xf27.github.io/qingTeng/2016/11/02/ES6重点基本语法学习笔记/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://xf27.github.io/qingTeng/2016/11/02/ES6重点基本语法学习笔记/　　作者: qingTeng" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/11/02/let和const/">
+                    let和const
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/10/03/vue实例/">
+                    vue实例
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#块及作用域："><span class="toc-number">1.</span> <span class="toc-text">块及作用域：{}</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新的变量赋值模式："><span class="toc-number">2.</span> <span class="toc-text">新的变量赋值模式：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板字符串：通过定义的字符串当中，可以通过-直接加入变量。"><span class="toc-number">3.</span> <span class="toc-text">模板字符串：通过定义的字符串当中，可以通过${}直接加入变量。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数中形参的默认值："><span class="toc-number">4.</span> <span class="toc-text">函数中形参的默认值：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#箭头函数：-gt"><span class="toc-number">5.</span> <span class="toc-text">箭头函数：=></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能强大的扩展运算符：”…”"><span class="toc-number">6.</span> <span class="toc-text">功能强大的扩展运算符：”…”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象扩展："><span class="toc-number">7.</span> <span class="toc-text">对象扩展：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Set类型：类似数组，但不是数组，ES6中的新类型，不会接收重复的值"><span class="toc-number">8.</span> <span class="toc-text">Set类型：类似数组，但不是数组，ES6中的新类型，不会接收重复的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map类型：真正的键值对类型，可以以任何类型作为建，也可以赋值任何类型为键的值"><span class="toc-number">9.</span> <span class="toc-text">Map类型：真正的键值对类型，可以以任何类型作为建，也可以赋值任何类型为键的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise异步操作对象："><span class="toc-number">10.</span> <span class="toc-text">Promise异步操作对象：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以下代码为异步加载图片函数"><span class="toc-number">11.</span> <span class="toc-text">以下代码为异步加载图片函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Class：JS中的类"><span class="toc-number">12.</span> <span class="toc-text">Class：JS中的类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类的继承extends：其中super指向父类构造器"><span class="toc-number">13.</span> <span class="toc-text">类的继承extends：其中super指向父类构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模块处理：export和import"><span class="toc-number">14.</span> <span class="toc-text">模块处理：export和import</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模块输出页面-exText-js"><span class="toc-number">15.</span> <span class="toc-text">模块输出页面,exText.js</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"ES6重点基本语法学习笔记　| qingTeng's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section class="youyan" id="comments">
+    <script>
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = 'http://v2.uyan.cc/code/uyan.js?uid=2126445';
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+    <div id="uyan_frame"></div>
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/11/02/let和const/" title="上一篇: let和const">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/10/03/vue实例/" title="下一篇: vue实例">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/24/angularjs-style-guide-zh/">angularjs-style-guide-zh</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/AngularJs环境的准备/">AngularJs环境的准备</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/Thank/">Thanks</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/学无止境，勇往直前/">学无止境，勇往直前</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/杭州有感/">杭州有感</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/小别离/">小别离</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/06/webpack/">webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/小诗四首/">小诗四首</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/02/小诗三首/">小诗三首</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/28/sublime快捷键/">sublime快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/let和const/">let和const</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/02/ES6重点基本语法学习笔记/">ES6重点基本语法学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/03/vue实例/">vue实例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/02/vue介绍/">vue介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/Front-end-Interview-questions/">小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/angularJs开发流程/">angularJs开发流程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/AngularJs/">angularJs基础知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/三月技术学习列表/">三月技术学习列表</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/15/【MAC】MARKDOWN编辑器推荐-IA-WRITER/">【MAC】写作工具推荐 iA Writer</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/11/七天七并发模型读书笔记/">七天七并发模型读书笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/05/Chrome插件开发简单示例/">Chrome插件开发简单示例</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/30/Python编码规范-Google/">Python编码规范(Google)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/27/Python语言学习/">Python语言学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/24/Redis学习手册/">Redis学习手册</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/13/MacApp清单/">MacApp清单</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/12/GOOGLE搜索从入门到精通V4-0/">GOOGLE搜索从入门到精通V4.0</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/03/IntelliJ IDEA 快捷键大全 for Mac/">IntelliJ IDEA 快捷键大全 for Mac</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/20/linux系统管理与配置/">Linux基本应用-系统安装与启用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/19/linux基本应用-基本磁盘管理/">linux基本应用-基本磁盘管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/18/linux下shell编程-shell编程/">Linux基本应用-系统安装与启用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/17/linux下shell编程-vi编辑器/">linux下shell编程-vi编辑器</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/16/Linux基本应用-文件权限管理/">Linux基本应用-文件权限管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/15/linux基本应用-用户与组的管理/">linux基本应用-用户与组的管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/14/Linux基本应用-基本命令的使用/">Linux基本应用-基本命令的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/13/Linux基本应用-系统安装与启用/">Linux基本应用-系统安装与启用</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/05/12/Linux常用命令集锦/">Linux常用命令集锦</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/04/02/小诗二首/">小诗二首</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/02/读书笔记》谷哥和亚马逊如何做产品/">读书笔记>>谷歌和亚马逊如何做产品</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/02/WeeklyPlanNote/">WeeklyPlanNote</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/02/linux环境变量及执行顺序介绍/">linux环境变量及执行顺序介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/03/02/小诗一首/">小诗一首</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/14/兼容总结/">兼容总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/13/Cookie/">cookie</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/12/AIAX/">AJAX</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/11/事件/">事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/09/this/">this</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/08/DOM/">DOM</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/07/Date和BOM/">Date&BOM</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/06/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/05/String字符串/">String字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/04/数组/">数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/03/函数/">函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/03/02/Javasciprt-循环/">Javascript-循环</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2014-2017 qingTeng
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by qingTeng <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
